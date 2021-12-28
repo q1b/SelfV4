@@ -1,0 +1,33 @@
+---
+import Head from '@/components/head/Head.astro';
+import Nav from '@/components/Header/Nav.astro';
+import Model from '@/components/utils/model/index.astro';
+
+const { content, canonicalURL } = Astro.props;
+
+const defaultContent = {
+	title: 'Suprito',
+	description: 'Portfolio website...',
+};
+---
+
+<html lang="en">
+	<head>
+		<Head content={content ?? defaultContent} {canonicalURL} />
+	</head>
+	<body>
+		<section
+			x-data={`{ 
+				isOpen: false ,
+				isNavOpen: false ,
+			}`}
+			class="flex flex-col gap-y-6 items-center w-full min-h-screen bg-white transition-colors duration-500 sm:gap-y-10 md:gap-y-11 lg:gap-y-12 dark:bg-slate-1000"
+		>
+			<Nav />
+			<slot />
+			<Model />
+		</section>
+		<script src={Astro.resolve('../lib/waapiHome.ts')}></script>
+		<slot name="script" />
+	</body>
+</html>

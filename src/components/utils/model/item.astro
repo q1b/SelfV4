@@ -1,0 +1,12 @@
+---
+const { link, clx = '', notation, bg = 'from-sky-400 to-blue-500', uid = 'menuIcon' } = Astro.props;
+---
+
+<li class={clx}>
+	<a id={uid} href={link} class="flex items-center p-2 rounded-md transition-colors sm:flex-col NavItem hover:bg-white/5">
+		<div class={`p-1 sm:p-3 mb-1 w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center bg-gradient-to-br ${bg} rounded-md`}>
+			<slot />
+		</div>
+		<p class="ml-4 text-lg tracking-wider text-white sm:ml-0 font-p">{notation}</p>
+	</a>
+</li>

@@ -1,0 +1,14 @@
+---
+// Component Imports
+import Layout from '../layouts/MainLayout.astro';
+import Profile from '../components/Profile.astro';
+
+const projects = Astro.fetchContent('./project/**/*.md');
+const featuredProject = projects[0];
+---
+
+<Layout canonicalURL={Astro.request.canonicalURL}>
+	<section class="pt-4">
+		<Profile />
+	</section>
+</Layout>

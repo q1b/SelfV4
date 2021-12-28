@@ -1,0 +1,29 @@
+---
+// import MainHead from '../components/MainHead.astro';
+import Button from '../components/utils/Button.astro';
+import Nav from '../components/Nav.svelte';
+import Layout from './MainLayout.astro';
+
+const { content } = Astro.props;
+---
+
+<Layout canonicalURL={Astro.request.canonicalURL}>
+	<Nav />
+	<header style={`background-image:url(${content.img})`} class="hero">
+		<h1 class="title">{content.title}</h1>
+	</header>
+	<div class="leadIn">
+		<div class="wrapper pt8 pb8 mb8 tac">
+			{content.tags.map((t) => <span class="tag">{t}</span>)}
+			<h3 class="tagline">{content.description}</h3>
+		</div>
+	</div>
+	<div class="wrapper wrapper__readable">
+		<div class="content"><slot /></div>
+	</div>
+	<footer class="tac mt6">
+		<a href="/projects">
+			<Button>View More</Button>
+		</a>
+	</footer>
+</Layout>

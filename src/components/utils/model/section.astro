@@ -1,0 +1,10 @@
+---
+const { title, titleColor } = Astro.props;
+---
+
+<li>
+	<h1 class=`mb-8 text-lg font-medium leading-6 sm:text-2xl navItem text-shadow ${titleColor ?? " dark:text-sky-500 text-purple-500 "} ` id="nav-dialog-title">{title}</h1>
+	<ul class="grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-y-0 sm:gap-x-10">
+		<slot />
+	</ul>
+</li>

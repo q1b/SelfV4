@@ -1,0 +1,128 @@
+---
+import { makeNavOpen, makeNavClose } from '../../../lib/utilsActions.ts';
+import ItemSection from './section.astro';
+import Item from './item.astro';
+import PostSection from './PostSection.astro';
+import Post from './post.astro';
+
+let titleColor = 'text-white dark:text-blue-500';
+---
+
+<section
+	x-show="isOpen"
+	x-cloak
+	x-on:keydown.escape.prevent.stop={makeNavClose()}
+	role="dialog"
+	aria-modal="true"
+	x-id="['modal-title']"
+	x-on:keydown.ctrl.slash.window={`()=>{
+		if( isNavOpen ) {
+			${makeNavClose()}
+		}else{
+			${makeNavOpen()}
+		}
+	}`}
+	:aria-labelledby="$id('modal-title')"
+	class="overflow-y-auto fixed inset-0 z-50"
+>
+	<!-- Overlay -->
+	<div x-show="isOpen" x-transition.opacity.duration.500ms class="fixed inset-0 bg-sky-400/20 dark:bg-sky-400/10 backdrop-blur-sm"></div>
+
+	<!-- Panel -->
+	<div x-show="isOpen" x-on:click={`() => { ${makeNavClose()}}`} class="flex relative justify-center items-center p-4 min-h-screen">
+		<main
+			x-on:click.stop
+			x-trap.noscroll.inert="isOpen"
+			id="nav-dialog-container"
+			class="
+                p-10
+								w-full
+								container
+                dark:bg-[hsl(206,100%,18%)]/40
+                bg-sky-500/40
+                shadow-2xl
+								shadow-sky-300/10
+								dark:shadow-[rgba(96,165,250,0.05)]
+								backdrop-blur-xl
+                rounded-xl
+                max-h-96 
+								overflow-y-auto
+								overflow-x-hidden
+              "
+		>
+			<section class="grid grid-cols-1 gap-x-8 place-content-center sm:grid-cols-2">
+				<ul class="flex flex-col gap-y-6 justify-center sm:gap-y-12">
+					<ItemSection title="Navigation" {titleColor}>
+						<Item link="/" uid="homeIconContainer" notation="Home">
+							<canvas x-rive.artboard.home width="48" height="48"></canvas>
+							<canvas class="sm:hidden" id="homeIconMobile" width="24" height="24"></canvas>
+						</Item>
+						<Item link="/" uid="notesIconContainer" notation="projects" bg="from-white to-sky-200">
+							<canvas x-rive.artboard.projects width="51" height="64"></canvas>
+							<!-- <canvas class="hidden sm:block" id="notesIcon" width="51.5475" height="79.435862069"></canvas> -->
+							<canvas class="sm:hidden" id="notesIconMobile" width="20.619" height="31.774344827"></canvas>
+						</Item>
+						<Item link="/" uid="notesIconContainer" notation="Notes" bg="from-transparent to-slate-600/10">
+							<canvas x-rive.artboard.notes width="51" height="79"></canvas>
+							<!-- <canvas class="hidden sm:block" id="notesIcon" width="51.5475" height="79.435862069"></canvas> -->
+							<canvas class="sm:hidden" id="notesIconMobile" width="20.619" height="31.774344827"></canvas>
+						</Item>
+						<!-- <Item navigationTo="/" uid="docsIconContainer" notation="Newsletter" bg="p-0 from-transparent to-slate-600/10">
+							<canvas x-rive.artboard.docs width="234" height="70"></canvas>
+							<!-- <canvas class="hidden sm:block" id="docsIcon" width="234" height="70"></canvas> 
+							<canvas class="sm:hidden" id="docsIconMobile" width="78" height="23.340518018"></canvas>
+						</Item> -->
+						<Item link="/" uid="msgIconContainer" notation="Chat" bg="from-transparent to-slate-600/10">
+							<canvas x-rive.artboard.chat={`console.log`} width="64" height="64"></canvas>
+							<!-- <canvas class="hidden sm:block" id="msgIcon" width="63.99" height="63.99"></canvas> -->
+							<canvas class="sm:hidden" id="msgIconMobile" width="24" height="24"></canvas>
+						</Item>
+					</ItemSection>
+				</ul>
+				<ul class="flex flex-col gap-y-6 sm:gap-y-12">
+					<PostSection title="Recent Posts" {titleColor}>
+						<Post link="/" title="Recently, updates from" notation="Astro, Nuxt, Next, Angular, Vue, React, tailwindcss ..." imgSrc="/assets/mesh-gradient.jpg" />
+					</PostSection>
+				</ul>
+				<button
+					type="button"
+					x-on:click={`() => { ${makeNavClose()}}`}
+					class="hidden group absolute top-10 right-10 justify-center p-0.5 text-sm font-medium rounded-md border border-transparent sm:inline-flex focus:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 navItem bg-slate-100 ring-offset-rose-700 hover:bg-white focus-visible:ring-rose-600"
+				>
+					<span class="relative">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="
+							h-6 w-6 
+							text-cyan-800
+							group-hover:opacity-0 group-hover:scale-0 
+              group-focus:opacity-0 group-focus:scale-0 
+							transition-[opacity,transform] duration-700"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="absolute h-5 w-5
+								text-rose-500
+								opacity-0 scale-50 top-0.5 left-0.5
+							 	group-hover:opacity-100 group-hover:scale-100
+                group-focus:opacity-100 group-focus:scale-100
+								transition-[opacity,transform] duration-700"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+								clip-rule="evenodd"></path>
+						</svg>
+					</span>
+				</button>
+			</section>
+		</main>
+	</div>
+</section>

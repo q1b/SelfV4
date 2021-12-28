@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			// "path":"../healthaholist/healthaholist",
+		},
+		{
+			// "path": "../algo-visu"
+		},
+		{
+			// "path": "../full-stack-web-application"
+		},
+		{
+			// "path": "../SelfV3"
+		},
+		{
+			// "path": "../SelfV4"
+		}
+	],
+	"settings": {}
+}

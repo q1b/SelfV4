@@ -1,0 +1,11 @@
+---
+import { makeSplash } from '../../lib/utilsActions.ts';
+---
+
+<button
+	x-data
+	x-on:click={`(e) => ${makeSplash('bg-black/20')}`}
+	class="overflow-hidden relative py-1.5 px-3 text-xl text-white bg-indigo-500 rounded-lg cursor-pointer shadow-2 shadow-indigo-300"
+>
+	<slot />
+</button>
