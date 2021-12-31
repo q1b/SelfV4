@@ -101,7 +101,9 @@ export const riveAction = async (
 	}
 	updateBounds();
 	rive.play();
+
 	let containerRef;
+
 	switch (event) {
 		case "hover":
 			containerRef = el.parentElement.parentElement;

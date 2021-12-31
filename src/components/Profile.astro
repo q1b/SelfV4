@@ -25,7 +25,9 @@
 		selection:bg-lime-500/10
 		"
 	>
-		<h1 class="mb-6 text-4xl font-black dark:text-white text-slate-800">
+		<h1
+			class="mb-6 text-4xl font-black dark:text-white text-slate-800 font-sans"
+		>
 			Hi there, I'm
 			<span x-annotate:underline.color.currentColor.duration.900.delay.1000
 				>Sukhpreet</span
@@ -65,13 +67,37 @@
 			<br />
 			And I am ...
 		</div>
-		<a href="\adventure" class="w-max bigBtn mt-6 font-cascadia">
-			My adventure of learning
-		</a>
+		<div class="flex flex-wrap gap-4 mt-6 ">
+			<a
+				href="\adventure"
+				x-ripple
+				class="
+					w-max flex items-center justify-center rounded-lg py-1 px-2.5 transition-colors 
+					shadow-spread-lg
+					dark:text-white dark:shadow-indigo-500/10 dark:bg-indigo-500/10 dark:hover:bg-indigo-500/5
+					text-lime-500 shadow-green-200/10 bg-lime-100 hover:bg-lime-200
+					focus:outline-none focus:ring-2 dark:focus:ring-white focus:ring-lime-800
+				"
+				style="text-shadow:0 0px 4px rgb(255 255 255 / 20%);"
+			>
+				My adventurous learning
+			</a>
+			<a
+				href="\icons"
+				x-ripple
+				class="
+					w-max flex items-center justify-center rounded-lg py-1 px-2.5 transition-colors
+					shadow-spread-lg 
+					dark:text-indigo-400 dark:shadow-indigo-500/10 dark:bg-indigo-500/10 dark:hover:bg-indigo-500/5
+					text-white shadow-lime-500/20 bg-lime-500/40 hover:bg-lime-500/80
+					focus:outline-none focus:ring-2 dark:focus:ring-white focus:ring-lime-800
+				"
+				style="text-shadow:0 1px 3px rgb(129 140 248 / 50% ), 0 1px 2px rgb(129 140 248 / 30% );"
+			>
+				Take a look at Icons
+			</a>
+		</div>
 		<div class="h-4"></div>
-		<a href="\icons" x-ripple class="w-max bigBtn font-cascadia">
-			Take a look at Icons
-		</a>
 		<!-- <button class="bigBtn flex font-cascadia">Get in touch with me</button> -->
 		<!-- <button class="bigBtn flex font-cascadia">Know more about me</button> -->
 	</article>

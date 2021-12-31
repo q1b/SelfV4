@@ -12,10 +12,13 @@ const {
 	<a
 		id={uid}
 		href={link}
+		style="
+			-webkit-tap-highlight-color: transparent;
+		"
 		class="flex items-center p-2 rounded-md transition-colors sm:flex-col NavItem hover:bg-white/5"
 	>
 		<div
-			class={`p-1 sm:p-3 mb-1 w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center bg-gradient-to-br ${bg} rounded-md`}
+			class={`mb-1 w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center bg-gradient-to-br ${bg} rounded-md`}
 		>
 			<slot />
 		</div>

@@ -22,7 +22,7 @@
 		text-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 1px 2px rgb(0 0 0 / 6%);
 	}
 	.bigBtn {
-		@apply flex-none flex-shrink-0 
+		@apply flex-none flex-shrink-0 select-none
 			w-full sm:w-auto rounded-[12px] gap-x-2 py-2 px-3
 			leading-6 font-semibold
       		dark:bg-sky-600/20 dark:hover:bg-sky-600/40
@@ -33,6 +33,16 @@
 			active:scale-105 transition-all ease-snappy duration-200;
 	}
 }
+
+@font-face {
+	font-family: "Manrope";
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+	font-named-instance: "Regular";
+	src: url("/fonts/Manrope-Regular.woff2") format("woff2");
+}
+
 @font-face {
 	font-family: "Cascadia Code PL";
 	font-weight: 100 900;

@@ -1,4 +1,5 @@
 ---
+import NarrowArrow from "./narrowArrow.astro";
 const { year, notation, uid } = Astro.props;
 ---
 
@@ -6,7 +7,8 @@ const { year, notation, uid } = Astro.props;
 	id={uid ?? year}
 	class="text-slate-600 dark:text-slate-400 flex flex-row gap-x-2 levelone card pt-5 pb-1 transition-transform-colors duration-700"
 >
-	--> <span class="font-bold text-indigo-600 dark:text-sky-400">
+	<NarrowArrow />
+	<span class="font-bold text-indigo-600 dark:text-sky-400">
 		{year ?? "202X"}
 	</span>
 	{notation ?? "Goal"}

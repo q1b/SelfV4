@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 // const colors = require("colors")
 module.exports = {
 	experimental: {
@@ -41,6 +43,10 @@ module.exports = {
 			sm: "0 1px 2px -1px rgba(0,0,0,0.3)",
 			lg: ` 0 3px 5px -2px rgba(0,0,0,0.3), 0 7px 14px -5px rgba(0,0,0,0.3)`,
 			md: ` 0 -1px 3px 0 rgba(0,0,0,0.3), 0 1px 2px -5px rgba(0,0,0,0.3), 0 2px 5px -5px rgba(0,0,0,0.3), 0 4px 12px -5px rgba(0,0,0,0.3), 0 12px 15px -5px rgba(0,0,0,0.3)`,
+			"spread-lg": `
+				inset 0px 0px 50px 10px rgba(0,0,0,0.3),
+				0px 4px 16px 5px rgba(0,0,0,0.3)
+			`,
 			lg: `
     0 -2px 5px 0 rgba(0,0,0,0.3),
     0 1px 1px -2px rgba(0,0,0,0.3),
@@ -89,6 +95,8 @@ module.exports = {
     -0.1px 35.5px 33.5px -2.6px rgba(0,0,0, 0.26),
     -0.1px 56.8px 53.7px -3.2px rgba(0,0,0, 0.23),
     -0.2px 86.4px 81.6px -3.7px rgba(0,0,0, 0.19)`,
+			spread:
+				"inset 0px 0px 10px 1px #ffffff, inset 0px 0px 50px 10px rgba(0,0,0,0.3), 0px 0px 10px 3px rgba(0,0,0,0.3)",
 			"inner-shadow-0": "inset 0 0 0 1px rgba(0,0,0,0.3)",
 			"inner-shadow-1": "inset 0 1px 2px 0 rgba(0,0,0,0.3)",
 			"inner-shadow-2": "inset 0 1px 4px 0 rgba(0,0,0,0.3)",
@@ -105,6 +113,7 @@ module.exports = {
 			}),
 			fontFamily: {
 				cascadia: "Cascadia Code PL",
+				sans: ["Manrope", ...defaultTheme.fontFamily.sans],
 			},
 			transitionProperty: {
 				"shadow-colors": "shadow,color",
