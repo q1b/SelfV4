@@ -11,38 +11,42 @@
 		background-image: linear-gradient(180deg, white, #0000, white);
 	}
 	.dark #mask {
-		background-image: linear-gradient(180deg, rgb(3, 14, 28) 10%, #0000, rgb(3, 14, 28) 90%);
+		background-image: linear-gradient(
+			180deg,
+			rgb(3, 14, 28) 10%,
+			#0000,
+			rgb(3, 14, 28) 90%
+		);
 	}
 	.text-shadow {
 		text-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 1px 2px rgb(0 0 0 / 6%);
 	}
 	.bigBtn {
 		@apply flex-none flex-shrink-0 
-      w-full sm:w-auto rounded-[12px]
-			gap-x-2 py-2 px-3
-      dark:bg-sky-600/5 dark:hover:bg-sky-600/10
-      bg-purple-700 hover:bg-purple-500
-			text-lg text-white leading-6 font-semibold
-			focus:ring focus:ring-offset-2 focus:outline-none
-			dark:focus:ring-sky-500
-			focus:ring-offset-white focus:ring-violet-500
+			w-full sm:w-auto rounded-[12px] gap-x-2 py-2 px-3
+			leading-6 font-semibold
+      		dark:bg-sky-600/20 dark:hover:bg-sky-600/40
+      		bg-lime-400 hover:bg-lime-400/80
+			text-shadow text-lg text-white 
+			focus:ring focus:ring-offset-2 focus:outline-none dark:focus:ring-sky-500
+			focus:ring-offset-white focus:ring-lime-400
 			active:scale-105 transition-all ease-snappy duration-200;
 	}
 }
 @font-face {
-	font-family: 'Cascadia Code PL';
+	font-family: "Cascadia Code PL";
 	font-weight: 100 900;
 	font-style: italic;
 	font-display: swap;
-	font-named-instance: 'Italic';
-	src: url('/fonts/CascadiaCodePLItalic.woff2') format('woff2');
+	font-named-instance: "Italic";
+	src: url("/fonts/CascadiaCodePLItalic.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: 'Cascadia Code PL';
+	font-family: "Cascadia Code PL";
 	font-weight: 100 900;
 	font-style: normal;
 	font-display: swap;
-	font-named-instance: 'Regular';
-	src: url('/fonts/CascadiaCodePL.woff2') format('woff2');
+	font-named-instance: "Regular";
+	src: url("/fonts/CascadiaCodePL.woff2") format("woff2");
 }

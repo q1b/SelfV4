@@ -1,6 +1,6 @@
 {
-  "name": "@example/portfolio-svelte",
-  "version": "0.0.1",
+  "name": "@sukh/portfolio",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -11,9 +11,10 @@
   },
   "devDependencies": {
     "@astrojs/renderer-svelte": "^0.2.3",
+    "@tailwindcss/typography": "^0.5.0",
     "astro": "^0.22.1",
     "postcss": "^8.4.5",
-    "prettier": "2.5.1",
+    "prettier": "^2.5.1",
     "prettier-plugin-astro": "^0.0.11",
     "rough-notation": "^0.5.1",
     "tailwindcss": "^3.0.7"
@@ -21,8 +22,10 @@
   "dependencies": {
     "@alpinejs/intersect": "^3.7.1",
     "@alpinejs/trap": "^3.7.1",
+    "@ryangjchandler/alpine-tooltip": "^0.4.0",
     "alpinejs": "^3.7.1",
     "autoprefixer": "^10.4.0",
-    "rive-svelte-action": "^0.0.2"
+    "rive-svelte-action": "^0.0.2",
+    "tippy.js": "^6.3.7"
   }
 }

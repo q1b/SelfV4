@@ -1,19 +1,40 @@
 ---
 // Component Imports
-import Layout from '../layouts/MainLayout.astro';
+import Layout from "../layouts/MainLayout.astro";
 
 const content = {
-	title: 'Icons made with rive',
-	description: 'When I started learning Online web',
+	title: "Icons made with rive",
+	description: "When I started learning Online web",
 };
-const icons = ['home', 'heart', 'mail', 'collection', 'code', 'user', 'terminal', 'trash', 'hashtag', 'identity', 'arrow', 'info'];
+
+const icons = [
+	"home",
+	"heart",
+	"mail",
+	"collection",
+	"code",
+	"user",
+	"terminal",
+	"trash",
+	"hashtag",
+	"identity",
+	"arrow",
+	"info",
+];
 ---
 
 <Layout {content} canonicalURL={Astro.request.canonicalURL}>
 	<section class="container bg-gray-400/10 h-screen rounded-t-2xl">
-		<h1 class="text-3xl text-slate-700 dark:text-white pl-6 pt-4 font-cascadia italic underline decoration-wavy">Icons</h1>
+		<h1
+			class="text-3xl text-slate-700 dark:text-white pl-6 pt-4 font-cascadia italic underline decoration-wavy"
+		>
+			Icons
+		</h1>
 		<main class="flex gap-10 flex-wrap">
-			{icons.map((icon) => `<button class="m-4 rounded-lg bg-slate-500 w-24 h-24"><canvas x-icon.${icon} ></canvas></button>`)}
+			{icons.map(
+				(icon) =>
+					`<button class="m-4 rounded-lg bg-slate-500 w-24 h-24"><canvas x-icon.${icon} ></canvas></button>`
+			)}
 		</main>
 	</section>
 	<script slot="script"> </script>

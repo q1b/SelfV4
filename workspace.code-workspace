@@ -19,5 +19,7 @@
 			// "path": "../SelfV4"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"svg.preview.background": "editor"
+	}
 }

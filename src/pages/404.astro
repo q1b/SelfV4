@@ -1,13 +1,22 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import Navbar from '../components/Header/Nav.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+import Navbar from "../components/Header/Nav.astro";
 ---
 
-<MainLayout content={{ title: ' 404: This page could not be found ', description: '404 page' }}>
+<MainLayout
+	content={{
+		title: " 404: This page could not be found ",
+		description: "404 page",
+	}}
+>
 	<section class="flex flex-col items-center justify-center pt-10 gap-y-10">
-		<h1 class="text-slate-800 dark:text-white [text-shadow:0_0_10px_#1e293b66] dark:[text-shadow:0_0_10px_#FFF] font-cascadia font-bold text-2xl">
+		<h1
+			class="text-slate-800 dark:text-white [text-shadow:0_0_10px_#1e293b66] dark:[text-shadow:0_0_10px_#FFF] font-cascadia font-bold text-2xl"
+		>
 			This Page could not be found !
 		</h1>
-		<p class="text-rose-600 font-cascadia font-bold text-2xl italic">404 error !</p>
+		<p class="text-rose-600 font-cascadia font-bold text-2xl italic">
+			404 error !
+		</p>
 	</section>
 </MainLayout>

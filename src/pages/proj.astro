@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/MainLayout.astro";
+
+const content = {
+	title: "Test Coursel",
+	description: "Coursel ",
+};
+---
+
+<Layout {content} canonicalURL={Astro.request.canonicalURL} class="">
+	<section class="min-h-screen container flex flex-col items-center">
+		<div class="flex w-full h-full items-center px-4">
+			<button class="p-2 rounded-full border hover:border-x-4 ">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+				</svg>
+			</button>
+			<div class="w-full flex flex-shrink-0 items-center justify-center px-4">
+				<div class="w-full h-96 bg-yellow-300 rounded-xl">
+					<h1>Title</h1>
+					<p>description</p>
+				</div>
+			</div>
+			<button class="p-2 rounded-full border hover:border-x-4 ">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+				</svg>
+			</button>
+		</div>
+	</section>
+</Layout>

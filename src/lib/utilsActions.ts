@@ -37,7 +37,7 @@ export const makeNavClose = () => {
                         navDialogContainerAle.playbackRate = -1;
                         navDialogContainerAle.play();
                         setTimeout(() => {
-                            isOpen = false;
+                            isOpen = false;                             
                         },DurOfContainerToAppear);
             	    };
                     isNavOpen = false;

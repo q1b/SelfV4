@@ -10,5 +10,5 @@
 export default /** @type {import('astro').AstroUserConfig} */ ({
 	devOptions: {},
 	// Enable the Svelte renderer to support Svelte components.
-	renderers: ['@astrojs/renderer-svelte'],
+	renderers: ["@astrojs/renderer-svelte"],
 });

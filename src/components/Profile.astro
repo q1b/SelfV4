@@ -1,56 +1,78 @@
-<div class="flex flex-col gap-16 p-10 transition-colors md:flex-row">
+<div class="flex flex-col gap-16 px-10 py-6 md:flex-row">
 	<article
 		id="background-circle"
-		class="relative flex aspect-portrait items-center justify-center flex-shrink-0 rounded-full bg-sky-600 dark:bg-indigo-600
+		class="relative flex aspect-portrait items-center justify-center flex-shrink-0 rounded-full bg-lime-200 dark:bg-indigo-300
     h-full w-40 sm:w-52 md:w-60 lg:w-72"
 	>
 		<div
 			id="photo"
-			class="relative aspect-portrait rounded-full 
-      bg-cover
-      bg-center
-      bg-[url('/profilePic.jpg')]
-      shadow-glow
-      shadow-sky-500
-      dark:shadow-indigo-500
-      w-32 sm:w-44 md:w-52 lg:w-64"
+			class="relative aspect-portrait 
+				rounded-full 
+      			bg-cover
+      			bg-center
+      			bg-[url('/profilePic.jpg')]
+      			shadow-glow
+      			shadow-lime-500
+      			dark:shadow-indigo-500
+      			w-32 sm:w-44 md:w-52 lg:w-64"
 		></div>
 	</article>
-	<article class="relative max-w-xl text-xl selection:text-[#0099ff] selection:bg-[hsla(210,100%,50%,0.2)]">
+	<article
+		class="relative max-w-xl text-xl 
+		dark:selection:text-[#0099ff] 
+		dark:selection:bg-[rgba(0,128,255,0.2)]
+		selection:text-lime-400
+		selection:bg-lime-500/10
+		"
+	>
 		<h1 class="mb-6 text-4xl font-black dark:text-white text-slate-800">
 			Hi there, I'm
-			<span x-annotate:underline.color.white.duration.900.delay.1000 id="annotate-underline">Sukhpreet</span>
+			<span x-annotate:underline.color.currentColor.duration.900.delay.1000
+				>Sukhpreet</span
+			>
 			.
 		</h1>
 		<div class="mb-3 dark:text-white text-slate-600">
 			A
-			<p class="inline dark:text-white text-slate-600"><span id="annotate-highlight" data-color="rgb(59 130 246 / 0.1)">self&nbsp;taught&nbsp;developer</span>,</p>
+			<p class="inline-block p-2 dark:text-white text-slate-600">
+				<span
+					class="inline-block"
+					x-annotate:box.duration.900.delay.2000="hsl(190deg,50%,62%)"
+					>self taught developer</span
+				>
+				,
+			</p>
 			who learnt UI Engineering skills,
 			<br />
 			during the lockdown, and experimenting with it.
 		</div>
 		<div class="mb-3 dark:text-white text-slate-600">
-			<p class="inline dark:text-white text-slate-600"><span id="annotate-highlight" data-color="rgb(99 102 241 / 0.2)"> Playing&nbsp;Basketball </span>,</p>
-			<p class="inline dark:text-white text-slate-600"><span id="annotate-highlight" data-color="rgb(139 92 246 / 0.2)"> writing&nbsp;code </span>,</p>
-			and
-			<p class="inline dark:text-white text-slate-600">
-				<span uid="yoga" id="annotate-highlight" data-color="rgb(168 85 247 / 0.2)"> doing&nbsp;nothing </span>
-			</p>
+			Playing Basketball , writing code , and doing nothing
 			<br />
-			are some of my
-			<p class="inline dark:text-white text-slate-600"><span uid="freeTime" id="annotate-highlight" data-color="rgb(236 72 153 / 0.2)"> free&nbsp;time&nbsp;favorites </span>.</p>
+			are some of my free time favorites .
 		</div>
 		<div class="mb-3 dark:text-white text-slate-600">
 			I believe in
-			<p class="inline dark:text-white text-slate-600">
-				<span uid="vasudhaivaKutumbakam" id="annotate-highlight" data-color="rgb(244 63 94 / 0.2)"> vasudhaiva kutumbakam </span>,
+			<p class="inline-block p-2 dark:text-white text-slate-600">
+				<span
+					class="inline-block"
+					x-annotate:highlight.duration.900.delay.2500="rgb(163 230 53 /0.2)"
+				>
+					vasudhaiva kutumbakam
+				</span>
+				,
 			</p>
 			<br />
 			And I am ...
 		</div>
-		<button class="bigBtn flex font-cascadia">My adventure of learning</button>
-		<button class="bigBtn flex font-cascadia">Take a look at sitemap</button>
-		<button class="bigBtn flex font-cascadia">Get in touch with me</button>
-		<button class="bigBtn flex font-cascadia">Know more about me</button>
+		<a href="\adventure" class="w-max bigBtn mt-6 font-cascadia">
+			My adventure of learning
+		</a>
+		<div class="h-4"></div>
+		<a href="\icons" x-ripple class="w-max bigBtn font-cascadia">
+			Take a look at Icons
+		</a>
+		<!-- <button class="bigBtn flex font-cascadia">Get in touch with me</button> -->
+		<!-- <button class="bigBtn flex font-cascadia">Know more about me</button> -->
 	</article>
 </div>

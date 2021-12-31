@@ -6,20 +6,32 @@
 <link rel="sitemap" href="/sitemap.xml" />
 
 <!-- Global CSS -->
-<link rel="stylesheet" type="text/css" href={Astro.resolve('../../styles/global.css')} />
+<link
+	rel="stylesheet"
+	type="text/css"
+	href={Astro.resolve("../../styles/global.css")}
+/>
+<link
+	rel="stylesheet"
+	type="text/css"
+	href={Astro.resolve("../../styles/custom.css")}
+/>
 
 <!-- This is intentionally inlined to avoid FOUC -->
 <script>
-	const theme = localStorage.getItem('theme');
-	if (theme === 'dark') {
-		document.documentElement.classList.add('dark');
-	} else if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		localStorage.theme = 'dark';
-		document.documentElement.classList.add('dark');
+	const theme = localStorage.getItem("theme");
+	if (theme === "dark") {
+		document.documentElement.classList.add("dark");
+	} else if (!window.matchMedia("(prefers-color-scheme: dark)").matches) {
+		localStorage.theme = "dark";
+		document.documentElement.classList.add("dark");
 	} else {
-		document.documentElement.classList.remove('dark');
+		document.documentElement.classList.remove("dark");
 	}
 </script>
 <!-- <script defer src="https://unpkg.com/@alpinejs/trap@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
-<script type="module" src={Astro.resolve('../../lib/headcommon.ts')}></script>
+<script type="module" src={Astro.resolve("../../lib/headcommon.ts")}></script>
+<!-- Polyfills -->
+<script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.js"
+></script>

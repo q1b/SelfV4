@@ -1,0 +1,34 @@
+::-webkit-scrollbar {
+	width: 16px;
+	background-color: hsl(336deg, 0%, 40%);
+}
+
+.dark ::-webkit-scrollbar {
+	width: 12px;
+	background-color: hsl(210deg, 50%, 21%);
+}
+
+/* Scroll bar thumb element */
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: hsl(276deg, 0%, 81%);
+	border: 2px solid hsl(276deg, 0%, 81%);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: hsl(210deg, 50%, 71%);
+	border: 2px solid hsl(210deg, 50%, 41%);
+}
+
+/* Scroll bar track element */
+::-webkit-scrollbar-track {
+	border-radius: 3px;
+	background-color: transparent;
+}
+
+/* Scroll bar track element */
+.dark ::-webkit-scrollbar-track {
+	border-radius: 3px;
+	background-color: transparent;
+}

@@ -1,14 +1,15 @@
 ---
 // Component Imports
-import Layout from '../layouts/MainLayout.astro';
-import Profile from '../components/Profile.astro';
+import Layout from "../layouts/MainLayout.astro";
+import Profile from "@/components/Profile.astro";
+// import Coursel from "@/components/utils/carousel/index.astro";
 
-const projects = Astro.fetchContent('./project/**/*.md');
-const featuredProject = projects[0];
+// const projects = Astro.fetchContent('./project/**/*.md');
+// const featuredProject = projects[0];
 ---
 
 <Layout canonicalURL={Astro.request.canonicalURL}>
-	<section class="pt-4">
+	<section>
 		<Profile />
 	</section>
 </Layout>

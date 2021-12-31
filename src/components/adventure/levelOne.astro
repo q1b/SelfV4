@@ -2,7 +2,12 @@
 const { year, notation, uid } = Astro.props;
 ---
 
-<li id={uid ?? year} class="text-slate-600 dark:text-slate-400 flex flex-row gap-x-2 levelone card pt-5 pb-1 transition-transform-colors duration-700">
-	--> <span class="font-bold text-indigo-600 dark:text-sky-400"> {year ?? '202X'} </span>
-	{notation ?? 'Goal'}
+<li
+	id={uid ?? year}
+	class="text-slate-600 dark:text-slate-400 flex flex-row gap-x-2 levelone card pt-5 pb-1 transition-transform-colors duration-700"
+>
+	--> <span class="font-bold text-indigo-600 dark:text-sky-400">
+		{year ?? "202X"}
+	</span>
+	{notation ?? "Goal"}
 </li>

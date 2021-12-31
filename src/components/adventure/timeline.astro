@@ -1,6 +1,6 @@
 ---
-import LevelOne from './levelOne.astro';
-import LevelTwo from './levelTwo.astro';
+import LevelOne from "./levelOne.astro";
+import LevelTwo from "./levelTwo.astro";
 
 const t = (color, text) => {
 	return `<span class="underline underline-offset-1 ${color}">${text}</span>`;
@@ -11,14 +11,20 @@ const a = (url, raw) => {
 };
 
 const icon = (lang) => {
-	if (langData[lang].icon.startsWith('h')) {
-		return a(langData[lang].url, `<img src="${langData[lang].icon}" alt="" class="w-auto h-6" /> ${langData[lang].text}`);
+	if (langData[lang].icon.startsWith("h")) {
+		return a(
+			langData[lang].url,
+			`<img src="${langData[lang].icon}" alt="" class="w-auto h-6" /> ${langData[lang].text}`
+		);
 	}
 	return a(langData[lang].url, `${langData[lang].icon} ${langData[lang].text}`);
 };
 
 const lib = (lang, library) => {
-	return a(langData[lang].libs.get(library), ` ${t('decoration-gray-300 text-gray-400', library)}`);
+	return a(
+		langData[lang].libs.get(library),
+		` ${t("decoration-gray-300 text-gray-400", library)}`
+	);
 };
 
 const getLogo = (name) => {
@@ -27,181 +33,194 @@ const getLogo = (name) => {
 
 const langData = {
 	powershell: {
-		text: t('decoration-sky-300 text-sky-400', 'powershell'),
-		url: 'https://docs.microsoft.com/en-us/powershell/',
+		text: t("decoration-sky-300 text-sky-400", "powershell"),
+		url: "https://docs.microsoft.com/en-us/powershell/",
 		icon: `https://raw.githubusercontent.com/actions/starter-workflows/5104ac42744c84c675b2f9e1168e89f1dd60c059/icons/powershell.svg`,
 	},
 	svg: {
-		text: t('decoration-amber-300 text-yellow-500', 'svg'),
-		url: 'https://docs.microsoft.com/en-us/powershell/',
+		text: t("decoration-amber-300 text-yellow-500", "svg"),
+		url: "https://docs.microsoft.com/en-us/powershell/",
 		icon: `https://www.vectorlogo.zone/logos/w3_svg/w3_svg-official.svg`,
 	},
 	figma: {
-		text: t('decoration-purple-200 text-purple-300', 'Figma'),
-		url: 'https://www.figma.com/',
-		icon: getLogo('figma'),
+		text: t("decoration-purple-200 text-purple-300", "Figma"),
+		url: "https://www.figma.com/",
+		icon: getLogo("figma"),
 	},
 	framer: {
-		text: t('decoration-slate-600 text-slate-400', 'framer motion'),
-		url: 'https://www.framer.com/motion/',
-		icon: getLogo('framer'),
+		text: t("decoration-slate-600 text-slate-400", "framer motion"),
+		url: "https://www.framer.com/motion/",
+		icon: getLogo("framer"),
 	},
 	git: {
-		text: t('decoration-red-300 text-red-400', 'git'),
-		url: 'https://git-scm.com/',
-		icon: getLogo('git-scm'),
+		text: t("decoration-red-300 text-red-400", "git"),
+		url: "https://git-scm.com/",
+		icon: getLogo("git-scm"),
 	},
 	vscode: {
-		text: t('decoration-red-300 text-red-400', 'git'),
-		url: 'https://git-scm.com/',
-		icon: getLogo('git-scm'),
+		text: t("decoration-red-300 text-red-400", "git"),
+		url: "https://git-scm.com/",
+		icon: getLogo("git-scm"),
 	},
 	github: {
-		text: t('decoration-slate-300 text-slate-400', 'github'),
-		url: 'https://github.com/',
-		icon: getLogo('github'),
+		text: t("decoration-slate-300 text-slate-400", "github"),
+		url: "https://github.com/",
+		icon: getLogo("github"),
 	},
 	vim: {
-		text: t('decoration-slate-300 text-slate-400', 'vim'),
-		url: 'https://www.vim.org/',
-		icon: getLogo('vim'),
+		text: t("decoration-slate-300 text-slate-400", "vim"),
+		url: "https://www.vim.org/",
+		icon: getLogo("vim"),
 	},
 	neovim: {
-		text: t('decoration-slate-200 text-slate-500', 'neovim'),
-		url: 'https://neovim.io/',
-		icon: getLogo('neovimio'),
+		text: t("decoration-slate-200 text-slate-500", "neovim"),
+		url: "https://neovim.io/",
+		icon: getLogo("neovimio"),
 	},
 	react: {
-		text: t('decoration-slate-200 text-slate-500', 'react'),
-		url: 'https://reactjs.org/',
+		text: t("decoration-slate-200 text-slate-500", "react"),
+		url: "https://reactjs.org/",
 		icon: `https://rive.app/static/runtimes/logo_react.svg`,
 	},
 	vue: {
-		text: t('decoration-slate-200 text-slate-500', 'vue'),
-		url: 'https://v3.vuejs.org/',
-		icon: getLogo('vuejs'),
+		text: t("decoration-slate-200 text-slate-500", "vue"),
+		url: "https://v3.vuejs.org/",
+		icon: getLogo("vuejs"),
 	},
 	node: {
-		text: t('decoration-slate-200 text-slate-500', 'node'),
-		url: 'https://nodejs.dev/',
-		icon: getLogo('nodejs'),
+		text: t("decoration-slate-200 text-slate-500", "node"),
+		url: "https://nodejs.dev/",
+		icon: getLogo("nodejs"),
 	},
 	html: {
-		text: t('decoration-orange-300 text-orange-400', 'HTML'),
-		url: 'https://www.w3schools.com/html/',
-		icon: getLogo('w3_html5'),
+		text: t("decoration-orange-300 text-orange-400", "HTML"),
+		url: "https://www.w3schools.com/html/",
+		icon: getLogo("w3_html5"),
 	},
 	stencil: {
-		text: t('decoration-gray-300 text-gray-200', 'stencil_js'),
-		url: 'https://stenciljs.com/',
-		icon: getLogo('stenciljs'),
+		text: t("decoration-gray-300 text-gray-200", "stencil_js"),
+		url: "https://stenciljs.com/",
+		icon: getLogo("stenciljs"),
 	},
 	pug: {
-		text: t('decoration-stone-300 text-stone-400', 'Pugjs'),
-		url: 'https://www.w3schools.com/css/',
-		icon: getLogo('pugjs'),
+		text: t("decoration-stone-300 text-stone-400", "Pugjs"),
+		url: "https://www.w3schools.com/css/",
+		icon: getLogo("pugjs"),
 	},
 	css: {
-		text: t('decoration-blue-300 text-blue-400', 'CSS'),
-		url: 'https://www.w3schools.com/css/',
-		icon: getLogo('w3_css'),
+		text: t("decoration-blue-300 text-blue-400", "CSS"),
+		url: "https://www.w3schools.com/css/",
+		icon: getLogo("w3_css"),
 	},
 	tailwindcss: {
-		text: t('decoration-teal-300 text-teal-400', 'tailwindcss'),
-		url: 'https://tailwindcss.com',
-		icon: getLogo('tailwindcss'),
+		text: t("decoration-teal-300 text-teal-400", "tailwindcss"),
+		url: "https://tailwindcss.com",
+		icon: getLogo("tailwindcss"),
 	},
 	javascript: {
-		text: t('decoration-amber-300 text-amber-400', 'javascript'),
-		url: 'https://www.javascript.com/',
-		icon: getLogo('javascript'),
+		text: t("decoration-amber-300 text-amber-400", "javascript"),
+		url: "https://www.javascript.com/",
+		icon: getLogo("javascript"),
 	},
 	typescript: {
-		text: t('decoration-blue-300 text-blue-400', 'typescript'),
-		url: 'https://www.typescriptlang.org/',
-		icon: getLogo('typescriptlang'),
+		text: t("decoration-blue-300 text-blue-400", "typescript"),
+		url: "https://www.typescriptlang.org/",
+		icon: getLogo("typescriptlang"),
 	},
 	python: {
-		text: t('decoration-yellow-300 text-yellow-400', 'python'),
-		url: 'https://www.python.org/',
-		icon: getLogo('python'),
+		text: t("decoration-yellow-300 text-yellow-400", "python"),
+		url: "https://www.python.org/",
+		icon: getLogo("python"),
 		libs: new Map([
-			['pyautogui', 'https://pyautogui.readthedocs.io/en/latest/'],
-			['selenium', 'https://www.selenium.dev/'],
+			["pyautogui", "https://pyautogui.readthedocs.io/en/latest/"],
+			["selenium", "https://www.selenium.dev/"],
 		]),
 	},
 	svelte: {
-		text: t('decoration-orange-300 text-orange-400', 'svelte'),
-		url: 'https://svelte.dev/',
-		icon: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg',
+		text: t("decoration-orange-300 text-orange-400", "svelte"),
+		url: "https://svelte.dev/",
+		icon: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg",
 	},
 	sveltekit: {
-		text: t('decoration-orange-300 text-orange-400', 'svelte kit'),
-		url: 'https://kit.svelte.dev/',
-		icon: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg',
+		text: t("decoration-orange-300 text-orange-400", "svelte kit"),
+		url: "https://kit.svelte.dev/",
+		icon: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg",
 	},
 	alpine: {
-		text: t('decoration-blue-600 text-blue-600', 'alpinejs'),
-		url: 'https://alpinejs.dev',
-		icon: 'https://alpinejs.dev/alpine_long.svg',
+		text: t("decoration-blue-600 text-blue-600", "alpinejs"),
+		url: "https://alpinejs.dev",
+		icon: "https://alpinejs.dev/alpine_long.svg",
 	},
 	dart: {
-		text: t('decoration-cyan-300 text-cyan-400', 'dart'),
-		url: 'https://dart.dev/',
-		icon: getLogo('dartlang'),
+		text: t("decoration-cyan-300 text-cyan-400", "dart"),
+		url: "https://dart.dev/",
+		icon: getLogo("dartlang"),
 	},
 	flutter: {
-		text: t('decoration-cyan-400 text-cyan-500', 'flutter'),
-		url: 'https://flutter.dev/',
-		icon: getLogo('flutterio'),
+		text: t("decoration-cyan-400 text-cyan-500", "flutter"),
+		url: "https://flutter.dev/",
+		icon: getLogo("flutterio"),
 	},
 	mongodb: {
-		text: t('decoration-lime-400 text-lime-500', 'MongoDB'),
-		url: 'https://www.mongodb.com/',
-		icon: getLogo('mongodb'),
+		text: t("decoration-lime-400 text-lime-500", "MongoDB"),
+		url: "https://www.mongodb.com/",
+		icon: getLogo("mongodb"),
 	},
 	firebase: {
-		text: t('decoration-yellow-400 text-yellow-500', 'firebase'),
-		url: 'https://firebase.google.com',
-		icon: getLogo('firebase'),
+		text: t("decoration-yellow-400 text-yellow-500", "firebase"),
+		url: "https://firebase.google.com",
+		icon: getLogo("firebase"),
 	},
 	adam_watan: {
-		text: t('decoration-indigo-400 text-indigo-500', 'adam watan'),
-		url: 'https://twitter.com/adamwathan',
-		icon: 'https://avatars.githubusercontent.com/u/4323180',
+		text: t("decoration-indigo-400 text-indigo-500", "adam watan"),
+		url: "https://twitter.com/adamwathan",
+		icon: "https://avatars.githubusercontent.com/u/4323180",
 	},
 };
 
 const timeline = {
 	2020: [
-		`learn ${icon('python')}`,
-		`experiment basic libraries like ${lib('python', 'pyautogui')} and ${lib('python', 'Selenium')}`,
-		'scored 92marks in 12th',
-		`learn ${icon('svg')}`,
-		`learn ${icon('dart')} from udemy and ${icon('flutter')} for frist time,too hard to cope up with So, left there and started learning HTML and CSS .`,
+		`learn ${icon("python")}`,
+		`experiment basic libraries like ${lib("python", "pyautogui")} and ${lib(
+			"python",
+			"Selenium"
+		)}`,
+		"scored 92marks in 12th",
+		`learn ${icon("svg")}`,
+		`learn ${icon("dart")} from udemy and ${icon(
+			"flutter"
+		)} for frist time,too hard to cope up with So, left there and started learning HTML and CSS .`,
 	],
 	2021: [
-		`learn ${icon('html')} ✔️`,
-		`${icon('pug')} html preproccesor ✔️`,
-		`learn ${icon('css')} ✔️`,
-		`learn ${icon('tailwindcss')} ✔️`,
-		`learn ${icon('git')} & use ${icon('github')} ✔️`,
-		`learned ${icon('vim')} binding`,
-		`using simple commands like cp(copy-item),rm(remove-item),Get-Item...in ${icon('powershell')}`,
-		`learn ${icon('javascript')} ✔️`,
-		`learn ${icon('react')} but didn't like left after learning basics ✔️`,
-		`learn ${icon('vue')} and learned advance concept from adam watan course 🤔 but switched to ${icon('svelte')} because it looks like more friendly `,
-		`used ${icon('stencil')} for a project, ( introduced to web-component )`,
-		`learn ${icon('svelte')} and holding on to it for now, ✔️`,
-		`learn ${icon('sveltekit')} ✔️`,
+		`learn ${icon("html")} ✔️`,
+		`${icon("pug")} html preproccesor ✔️`,
+		`learn ${icon("css")} ✔️`,
+		`learn ${icon("tailwindcss")} ✔️`,
+		`learn ${icon("git")} & use ${icon("github")} ✔️`,
+		`learned ${icon("vim")} binding`,
+		`using simple commands like cp(copy-item),rm(remove-item),Get-Item...in ${icon(
+			"powershell"
+		)}`,
+		`learn ${icon("javascript")} ✔️`,
+		`learn ${icon("react")} but didn't like left after learning basics ✔️`,
+		`learn ${icon(
+			"vue"
+		)} and learned advance concept from adam watan course 🤔 but switched to ${icon(
+			"svelte"
+		)} because it looks like more friendly `,
+		`used ${icon("stencil")} for a project, ( introduced to web-component )`,
+		`learn ${icon("svelte")} and holding on to it for now, ✔️`,
+		`learn ${icon("sveltekit")} ✔️`,
 		`learn Astro ( Mordern Static Site Generator ) ✔️`,
 		`learn Rive ✔️`,
-		`learn ${icon('figma')} Basic ✔️`,
-		`learn Using ${icon('firebase')} as well supabase ✔️`,
-		`Make a Sorting visualiser in ${icon('svelte')} ✔️`,
+		`learn ${icon("figma")} Basic ✔️`,
+		`learn Using ${icon("firebase")} as well supabase ✔️`,
+		`Make a Sorting visualiser in ${icon("svelte")} ✔️`,
 		`Work on a real life project 😅 still going on ✔️`,
-		`Make a TODO APP USING ${icon('mongodb')} ✔️ ( FULL-STACK ) ✔️ `,
-		`Make a Crossfade animation like-wise provided by ${icon('framer')} in ${icon('svelte')} ✔️`,
+		`Make a TODO APP USING ${icon("mongodb")} ✔️ ( FULL-STACK ) ✔️ `,
+		`Make a Crossfade animation like-wise provided by ${icon(
+			"framer"
+		)} in ${icon("svelte")} ✔️`,
 		`Working on a real-life project 😅 not yet payed for it ✔️`,
 		`Make a portfolio 🙂 yeah going on ! ✔️`,
 	],
@@ -210,7 +229,7 @@ const timeline = {
 
 <ul class="font-cascadia flex flex-col gap-y-2">
 	<LevelOne uid="firstHeadingItem" notation="Goals" year="2020" />
-	{timeline['2020'].map((notation) => <LevelTwo>{notation}</LevelTwo>)}
+	{timeline["2020"].map((notation) => <LevelTwo>{notation}</LevelTwo>)}
 	<LevelOne notation="Goals" year="2021" />
-	{timeline['2021'].map((notation) => <LevelTwo>{notation}</LevelTwo>)}
+	{timeline["2021"].map((notation) => <LevelTwo>{notation}</LevelTwo>)}
 </ul>

@@ -47,9 +47,9 @@ function applyInactiveClass(element: Element) {
 }
 */
 
-const cards = document.querySelectorAll('.card');
-const cardsContainer = document.getElementById('cardsContainer');
-const maskRef = document.getElementById('mask');
+const cards = document.querySelectorAll(".card");
+const cardsContainer = document.getElementById("cardsContainer");
+const maskRef = document.getElementById("mask");
 
 const obv = new IntersectionObserver(
 	(entries) => {
@@ -61,20 +61,20 @@ const obv = new IntersectionObserver(
 					},
 					{
 						duration: 620,
-						fill: 'both',
-						easing: 'ease-out',
+						fill: "both",
+						easing: "ease-out",
 					}
-				).onfinish = () => maskRef.classList.add('hidden');
+				).onfinish = () => maskRef.classList.add("hidden");
 			} else {
-				maskRef.classList.remove('hidden');
+				maskRef.classList.remove("hidden");
 				maskRef.animate(
 					{
 						opacity: [0, 1],
 					},
 					{
 						duration: 620,
-						fill: 'both',
-						easing: 'ease-in',
+						fill: "both",
+						easing: "ease-in",
 					}
 				);
 			}
@@ -82,7 +82,7 @@ const obv = new IntersectionObserver(
 	},
 	{
 		threshold: 0.1,
-		rootMargin: '-200px 0px -200px 0px',
+		rootMargin: "-200px 0px -200px 0px",
 	}
 );
 
@@ -106,11 +106,19 @@ const observer: IntersectionObserver = new IntersectionObserver(
 	(entries) => {
 		entries.forEach((entry) => {
 			if (!entry.isIntersecting) {
-				entry.target.classList.add('dark:text-slate-400', 'text-slate-200');
-				entry.target.classList.remove('dark:text-white', 'translate-x-2', 'text-slate-900');
+				entry.target.classList.add("dark:text-slate-400", "text-slate-200");
+				entry.target.classList.remove(
+					"dark:text-white",
+					"translate-x-2",
+					"text-slate-900"
+				);
 			} else {
-				entry.target.classList.add('dark:text-white', 'translate-x-2', 'text-slate-900');
-				entry.target.classList.remove('dark:text-slate-400', 'text-slate-200');
+				entry.target.classList.add(
+					"dark:text-white",
+					"translate-x-2",
+					"text-slate-900"
+				);
+				entry.target.classList.remove("dark:text-slate-400", "text-slate-200");
 			}
 		});
 	},
