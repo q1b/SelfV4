@@ -1,11 +1,22 @@
 {
+  "include": [
+    "src/**/*.ts"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["src/components/*"],
-      "@/lib/*": ["src/lib/*"],
-      "@/layouts/*": ["src/layouts"],
-      "asset:*": ["src/assets/*?url"]
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/lib/*": [
+        "src/lib/*"
+      ],
+      "@/layouts/*": [
+        "src/layouts"
+      ],
+      "asset:*": [
+        "src/assets/*?url"
+      ]
     }
   }
 }

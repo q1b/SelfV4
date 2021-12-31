@@ -30,11 +30,21 @@ const imageAlt = content?.image?.alt ?? OPEN_GRAPH.image.alt;
 ---
 
 <title>{content.title ?? SITE.title}</title>
+
 <meta
 	name="keywords"
 	content="WEB Developer and software Engineer, Mastered HTML, CSS, JavaScript, Vue and Basics of React yet Now,"
 />
 <meta name="author" content="XSukhpreet" />
+
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="white"
+/>
+
+<meta
+	name="theme-color"
+	media="(prefers-color-scheme: dark)"
+	content="rgb(3,14,28)"
+/>
 
 <!-- Page Metadata -->
 <link rel="canonical" href={canonicalURL} />
