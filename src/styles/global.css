@@ -40,7 +40,7 @@
 	font-style: normal;
 	font-display: swap;
 	font-named-instance: "Regular";
-	src: url("/fonts/Manrope-Regular.woff2") format("woff2");
+	src: url("/fonts/Manrope\[wght\].woff2") format("woff2");
 }
 
 @font-face {

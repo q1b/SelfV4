@@ -1,0 +1,20 @@
+---
+import Heading from "../heading.astro";
+import Container from "../Container.astro"
+import SubHeading from "../subHeading.astro";
+import Link from "../link.astro"
+
+const {contactsDetails} = Astro.props
+---
+
+<Container>
+    <Heading>Links</Heading>
+    {Object.keys(contactsDetails).map((detail)=>(
+        <div class="mt-4">
+            <SubHeading>
+                {detail}
+            </SubHeading>
+            <Link href="#">{contactsDetails[detail]}</Link>
+        </div>
+    ))}
+</Container>

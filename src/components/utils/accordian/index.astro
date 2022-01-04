@@ -1,0 +1,27 @@
+---
+import Single from "./Button.astro";
+---
+
+<div x-data={"{ active: 1 }"} class="space-y-4">
+	<Single uid="1">
+		<ol
+			class="list-inside bg-white dark:bg-slate-800 shadow-xl dark:shadow-slate-700/10 shadow-slate-400/10 border dark:border-slate-800 w-max px-3 p-2 rounded-xl ml-10 mt-4 space-y-2"
+		>
+			<li
+				class="shadow-light-underline dark:shadow-dark-underline dark:shadow-cyan-400/10 dark:text-cyan-200 text-blue-600 text-xl flex items-center"
+			>
+				<a href="#"> Singly Linked List </a>
+			</li>
+			<li
+				class="shadow-light-underline dark:shadow-dark-underline dark:shadow-cyan-400/10 dark:text-cyan-200 text-blue-600 text-xl flex items-center"
+			>
+				<a href="#"> Doubly Linked List </a>
+			</li>
+			<li
+				class="shadow-light-underline dark:shadow-dark-underline dark:shadow-cyan-400/10 dark:text-cyan-200 text-blue-600 text-xl flex items-center"
+			>
+				<a href="#"> Circular Linked List </a>
+			</li>
+		</ol>
+	</Single>
+</div>

@@ -1,3 +1,4 @@
+const { colors } = require("tailwindcss/defaultTheme");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 // const colors = require("colors")
@@ -39,7 +40,9 @@ module.exports = {
 			"conditional-2xl": "clamp(0px, calc(100vw - 100%) * 1e5, 4rem)",
 			"conditional-3xl": "clamp(0px, calc(100vw - 100%) * 1e5, 8rem)",
 		},
-		boxShadow: {
+		boxShadow: (theme) => ({
+			"dark-underline": `inset 0 -0.125em #030E1C, inset 0 -0.375em rgb(165,243,252,0.44)`,
+			"light-underline": `inset 0 -0.125em #fff, inset 0 -0.375em rgb(165,243,252,0.44)`,
 			sm: "0 1px 2px -1px rgba(0,0,0,0.3)",
 			lg: ` 0 3px 5px -2px rgba(0,0,0,0.3), 0 7px 14px -5px rgba(0,0,0,0.3)`,
 			md: ` 0 -1px 3px 0 rgba(0,0,0,0.3), 0 1px 2px -5px rgba(0,0,0,0.3), 0 2px 5px -5px rgba(0,0,0,0.3), 0 4px 12px -5px rgba(0,0,0,0.3), 0 12px 15px -5px rgba(0,0,0,0.3)`,
@@ -104,7 +107,7 @@ module.exports = {
 			"inner-shadow-4": "inset 0 2px 14px 0 rgba(0,0,0,0.3)",
 			glass:
 				"inset 0px 1px 6px 0px rgba(0,0,0,0.3),inset 0px 1px 36px 6px rgba(0,0,0,0.3),inset 17px -2px 72px 12px rgba(0,0,0,0.3)",
-		},
+		}),
 		extend: {
 			colors: ({ theme }) => ({
 				slate: {

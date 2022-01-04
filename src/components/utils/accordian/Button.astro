@@ -1,0 +1,50 @@
+---
+const { uid } = Astro.props;
+---
+
+<div
+	x-data={`{
+        id: ${uid},
+        get expanded() {
+            return this.active === this.id
+        },
+        set expanded(value) {
+            this.active = value ? this.id : null
+        },
+    }`}
+	x-id="['alpinejs-accordian-panel']"
+	role="region"
+	class=""
+>
+	<button
+		type="button"
+		x-on:click="expanded = !expanded"
+		x-bind:aria-expanded="expanded"
+		x-bind:aria-controls="$id('alpinejs-accordian-panel')"
+		class="flex items-center justify-between w-max font-bold text-xl px-3 py-1 rounded-lg text-white bg-slate-700"
+	>
+		<span class="">1. &nbsp; Linked List</span>
+		<span
+			x-bind:class={"{ '-rotate-180': expanded }"}
+			aria-hidden="true"
+			class=" transition-transform ml-4"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M19 9l-7 7-7-7"></path>
+			</svg>
+		</span>
+	</button>
+	<div x-show="expanded" x-bind:id="$id('alpinejs-accordian-panel')" x-collapse>
+		<slot />
+	</div>
+</div>

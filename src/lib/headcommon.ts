@@ -6,6 +6,7 @@ import { ripple } from "./ripple";
 import { scroll } from "./scroll";
 import { intersect as intersectV2 } from "./plugins/intersect";
 import intersect from "@alpinejs/intersect";
+import collapse from "@alpinejs/collapse";
 
 import trap from "@alpinejs/trap";
 import { riveAction, iconAction } from "./rive";
@@ -14,6 +15,7 @@ import type { RoughAnnotationConfig } from "rough-notation/lib/model";
 
 Alpine.plugin(trap);
 Alpine.plugin(intersect);
+Alpine.plugin(collapse);
 Alpine.plugin(Tooltip);
 
 const getObj = (array: string[], property: string): string => {

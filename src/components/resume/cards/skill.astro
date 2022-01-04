@@ -1,0 +1,22 @@
+---
+import Container from "../Container.astro";
+import Heading from "../heading.astro";
+import SubHeading from "../subHeading.astro";
+import Text from "../text.astro";
+import IconCOmp from "../../icons/index.astro";
+const { skillsDetails } = Astro.props;
+---
+
+<Container>
+	<Heading>Skills</Heading>
+	{Object.keys(skillsDetails).map((detail) => (
+		<div class="mt-4">
+			<SubHeading>{detail}</SubHeading>
+			<Text>
+				{skillsDetails[detail].map((skill) => (
+					<IconCOmp lang={skill.toLowerCase()} />
+				))}
+			</Text>
+		</div>
+	))}
+</Container>

@@ -1,0 +1,54 @@
+---
+import Skills from "./Cards/skill.astro";
+import Links from "./Cards/links.astro";
+import Passion from "./Cards/passion.astro";
+import Education from "./Cards/education.astro";
+import Karma from "./Cards/karma.astro";
+
+const passionDetails = {
+	sports: "Basketball, Football",
+	activty: "Meditation Yoga",
+};
+
+const skillsDetails = {
+	"Front-end Frameworks": ["Svelte", "Vue"],
+	"Programming Languages": ["Javascript", "Typescript"],
+};
+
+const contactsDetails = {
+	email: "peadevp@gmail.com",
+	"Phone Number": "+91 8769514159",
+};
+
+const educationDetails = [
+	{
+		degree: "B.tech A.I & C.S",
+		place: "Sri Sri University",
+		marksHeader: "status",
+		marks: "Going On",
+		marksClass: "text-yellow-400",
+	},
+	{
+		degree: "Sri Sri University",
+		place: "Kendriya Vidyalya",
+		marksHeader: "%",
+		marks: "92.8",
+		marksClass: "text-green-400",
+	},
+];
+const karma = [
+	{
+		type: "freelance work",
+		title: "Quiz App",
+		items: ["Designed UI", "Used flutter,dart"],
+	},
+];
+---
+
+<article class="grid sm:grid-cols-2 grid-cols-1  gap-4">
+	<Skills {skillsDetails} />
+	<Links {contactsDetails} />
+	<Education {educationDetails} />
+	<Passion {passionDetails} />
+	<Karma work={karma} />
+</article>

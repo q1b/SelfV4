@@ -1,0 +1,51 @@
+---
+// Component Imports
+import Layout from "../../layouts/MainLayout.astro";
+import Accordian from "@/components/utils/accordian/index.astro";
+
+const content = {
+	title: "Suprito",
+	description: "Portfolio website...",
+	image: {
+		src: "/assets/og/default_image.jpg?v=1",
+		alt:
+			"Myself Sukhpreet Singh I have nothing to say about myself, " +
+			"But I would like to say that I am grateful for all the youtube videos and free resources like docs done very well online which help all of us to bring a change in society, really grateful for all of online educational stuff.",
+	},
+};
+
+/*
+	-> Linear Data Structures
+		Linked List 
+			Singly Linked List
+			Doubly Linked List
+			Circular Linked List
+		Stack	LIFO (last in, first out)
+		Queue	FIFO (first in, first out) 
+*/
+---
+
+<Layout {content} canonicalURL={Astro.request.canonicalURL}>
+	<section class="flex flex-col container px-10">
+		<h1 class="text-slate-600 dark:text-white text-3xl font-sans mb-10">
+			Data Structures in Rust Language
+		</h1>
+		<Accordian />
+		<!-- <ul class="list-inside mt-6">
+			<li class="text-white text-xl">
+				<h1 class="inline underline text-base ">Linked List</h1>
+				<ul class="list-inside ml-10 mt-4 space-y-2">
+					<li class="text-white text-xl flex items-center">
+						Singly Linked List
+					</li>
+					<li class="text-white text-xl flex items-center">
+						Doubly Linked List
+					</li>
+					<li class="text-white text-xl flex items-center">
+						Circular Linked List
+					</li>
+				</ul>
+			</li>
+		</ul> -->
+	</section>
+</Layout>

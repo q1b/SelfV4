@@ -1,0 +1,14 @@
+---
+const props = Astro.props;
+const id = props.id ?? null;
+---
+
+{id !== null ? (
+	<h2 class={`text-sm font-medium font-sans tracking-normal ${props.class !== undefined ? props.class : 'dark:text-slate-600 text-slate-400'} `} {id} >
+		<slot />
+	</h2> ) : (
+	<h2 class={`text-sm font-medium font-sans tracking-normal ${props.class !== undefined ? props.class : 'dark:text-slate-600 text-slate-400'} `}>
+		<slot />
+	</h2>
+	)
+}

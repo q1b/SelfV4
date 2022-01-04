@@ -1,0 +1,37 @@
+---
+// Component Imports
+import Layout from "../layouts/MainLayout.astro";
+import Coursel from "@/components/projects/carousel.astro";
+const content = {
+	title: "Suprito",
+	description: "Portfolio website...",
+	image: {
+		src: "/assets/og/default_image.jpg?v=1",
+		alt:
+			"Myself Sukhpreet Singh I have nothing to say about myself, " +
+			"But I would like to say that I am grateful for all the youtube videos and free resources like docs done very well online which help all of us to bring a change in society, really grateful for all of online educational stuff.",
+	},
+};
+---
+
+<Layout {content} canonicalURL={Astro.request.canonicalURL}>
+	<section class="container px-10 flex flex-col gap-y-10">
+		<main class="">
+			<h1 class="text-7xl text-stone-600 dark:text-white">Projects</h1>
+		</main>
+		<article
+			class="dark:bg-slate-500/10 px-6 py-12 rounded-xl flex flex-col gap-y-8"
+		>
+			<Coursel />
+			<div>
+				<h1 class="text-4xl text-stone-600 dark:text-slate-50">
+					Portfolio crafted to represent skills
+				</h1>
+				<p class="text-stone-400 dark:text-slate-400">
+					To represent my skills, my passion and myself in digital form through
+					User Interface.
+				</p>
+			</div>
+		</article>
+	</section>
+</Layout>

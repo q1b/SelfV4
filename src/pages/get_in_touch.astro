@@ -1,0 +1,66 @@
+---
+// Component Imports
+import Layout from "../layouts/MainLayout.astro";
+
+const content = {
+	title: "Get_in touch",
+	description:
+		"want to come in touch of sukhpreet singh, then some and see how you can come closer to him.",
+	image: {
+		src: "/assets/og/get_in_touch.jpg",
+		alt:
+			"Myself Sukhpreet Singh I have nothing to say about myself, " +
+			"But I would like to say that I am grateful for all the youtube videos and free resources like docs done very well online which help all of us to bring a change in society, really grateful for all of online educational stuff.",
+	},
+};
+---
+
+<Layout {content} canonicalURL={Astro.request.canonicalURL}>
+	<section
+		class="container px-10 font-sans font-extrabold selection:text-white selection:bg-lime-500 dark:selection:text-white dark:selection:bg-slate-800"
+	>
+		<article class="skew-x-4 -skew-y-2 dark:text-white text-stone-600 ">
+			<!-- 214x 335y (skew) -->
+			<h1
+				x-annotate:underline.duration.900="currentColor"
+				class="text-4xl xxs:text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl [text-shadow:-6px_6px_0_#AF08] dark:[text-shadow:-6px_6px_0_#FFF3] w-max"
+				style=""
+			>
+				Get in touch
+			</h1>
+			<h2
+				class="mt-6 dark:text-white text-stone-600 xxs:text-xl xs:text-2xl sm:text-3xl md:text-4xl"
+			>
+				I love to meet
+				<span
+					class="inline-block p-1 text-white"
+					x-annotate:highlight.duration.900.delay.1000="rgb(63 76 78)"
+				>
+					new peoples,
+				</span>
+			</h2>
+		</article>
+		<article
+			class="skew-x-4 mt-6 -skew-y-2 bg-[#AF08] dark:bg-slate-500 w-full p-4 flex flex-col place-content-between"
+		>
+			<p
+				class="text-sm xxs:text-base xs:text-lg sm:text-xl md:text-2xl text-teal-700 dark:text-white"
+			>
+				Their is no need for any reason to start a conversation with me, I am
+				always open for new friends in life.
+			</p>
+			<p class="mt-auto sm:text-xl text-teal-900 dark:text-slate-800 ">
+				you can drop me a message on
+				<a
+					href=""
+					class="bg-white inline-block px-1 text-sky-500 underline font-cascadia italic"
+				>
+					twitter
+				</a>, or email me with this email id
+				<a href="" class="bg-white inline-block px-1 text-sky-500 underline">
+					peadevp@gmail.com
+				</a>.
+			</p>
+		</article>
+	</section>
+</Layout>

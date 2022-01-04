@@ -1,0 +1,19 @@
+---
+import Carousel from "@/components/utils/carousel/carousel.astro";
+import CarouselItem from "@/components/utils/carousel/carouselItem.astro";
+---
+
+<Carousel skip={1} scrollbar={false}>
+	{[
+		"bg-[url('/assets/og/portfolio.jpg')]",
+		"bg-[url('/assets/og/default_image.jpg')]",
+		"bg-[url('/assets/og/resume.jpg')]",
+		"bg-[url('/assets/og/get_in_touch.jpg')]",
+	].map((text) => (
+		<CarouselItem>
+			<div
+				class={`${text} bg-contain aspect-[2/1] bg-no-repeat w-full h-auto rounded-xl`}
+			></div>
+		</CarouselItem>
+	))}
+</Carousel>

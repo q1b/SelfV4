@@ -1,0 +1,209 @@
+---
+import ATag from "./aTag.astro";
+import Text from "./text.astro";
+
+const { lang } = Astro.props;
+
+// const icon = (lang) => {
+// 	if (langData[lang].icon.startsWith("h")) {
+// 		return a(
+// 			langData[lang].url,
+// 			`<img src="${langData[lang].icon}" alt="" class="w-auto h-6" /> ${langData[lang].text}`
+// 		);
+// 	}
+// 	return a(langData[lang].url, `${langData[lang].icon} ${langData[lang].text}`);
+// };
+
+// const lib = (lang, library) => {
+// 	return a(
+// 		langData[lang].libs.get(library),
+// 		`${t("decoration-gray-300 text-gray-400", library)}`
+// 	);
+// };
+
+const getLogo = (name) => {
+	return `https://www.vectorlogo.zone/logos/${name}/${name}-icon.svg`;
+};
+
+const langData = {
+	powershell: {
+		text: "powershell",
+		decoration: "decoration-sky-300 text-sky-400",
+		url: "https://docs.microsoft.com/en-us/powershell/",
+		icon: `https://raw.githubusercontent.com/actions/starter-workflows/5104ac42744c84c675b2f9e1168e89f1dd60c059/icons/powershell.svg`,
+	},
+	svg: {
+		text: "svg",
+		decoration: "decoration-amber-300 text-yellow-500",
+		url: "https://docs.microsoft.com/en-us/powershell/",
+		icon: `https://www.vectorlogo.zone/logos/w3_svg/w3_svg-official.svg`,
+	},
+	figma: {
+		text: "Figma",
+		decoration: "decoration-purple-200 text-purple-300",
+		url: "https://www.figma.com/",
+		icon: getLogo("figma"),
+	},
+	framer: {
+		text: "framer mtion",
+		decoration: "decoration-slate-600 text-slate-400",
+		url: "https://www.framer.com/motion/",
+		icon: getLogo("framer"),
+	},
+	git: {
+		text: "git",
+		decoration: "decoration-red-300 text-red-400",
+		url: "https://git-scm.com/",
+		icon: getLogo("git-scm"),
+	},
+	vscode: {
+		text: "git",
+		decoration: "decoration-red-300 text-red-400",
+		url: "https://git-scm.com/",
+		icon: getLogo("git-scm"),
+	},
+	github: {
+		text: "github",
+		decoration: "decoration-slate-300 text-slate-400",
+		url: "https://github.com/",
+		icon: getLogo("github"),
+	},
+	vim: {
+		text: "vim",
+		decoration: "decoration-slate-300 text-slate-400",
+		url: "https://www.vim.org/",
+		icon: getLogo("vim"),
+	},
+	neovim: {
+		text: "neovim",
+		decoration: "decoration-slate-200 text-slate-500",
+		url: "https://neovim.io/",
+		icon: getLogo("neovimio"),
+	},
+	react: {
+		text: "react",
+		decoration: "decoration-slate-200 text-slate-500",
+		url: "https://reactjs.org/",
+		icon: `https://rive.app/static/runtimes/logo_react.svg`,
+	},
+	vue: {
+		text: "vue",
+		decoration: "decoration-slate-200 text-slate-500",
+		url: "https://v3.vuejs.org/",
+		icon: getLogo("vuejs"),
+	},
+	node: {
+		text: "node",
+		decoration: "decoration-slate-200 text-slate-500",
+		url: "https://nodejs.dev/",
+		icon: getLogo("nodejs"),
+	},
+	html: {
+		text: "HTML",
+		decoration: "decoration-orange-300 text-orange-400",
+		url: "https://www.w3schools.com/html/",
+		icon: getLogo("w3_html5"),
+	},
+	stencil: {
+		text: "stencil_js",
+		decoration: "decoration-gray-300 text-gray-200",
+		url: "https://stenciljs.com/",
+		icon: getLogo("stenciljs"),
+	},
+	pug: {
+		text: "Pugjs",
+		decoration: "decoration-stone-300 text-stone-400",
+		url: "https://www.w3schools.com/css/",
+		icon: getLogo("pugjs"),
+	},
+	css: {
+		text: "CSS",
+		decoration: "decoration-blue-300 text-blue-400",
+		url: "https://www.w3schools.com/css/",
+		icon: getLogo("w3_css"),
+	},
+	tailwindcss: {
+		text: "tailwindcss",
+		decoration: "decoration-teal-300 text-teal-400",
+		url: "https://tailwindcss.com",
+		icon: getLogo("tailwindcss"),
+	},
+	javascript: {
+		text: "javascript",
+		decoration: "decoration-amber-300 text-amber-400",
+		url: "https://www.javascript.com/",
+		icon: getLogo("javascript"),
+	},
+	typescript: {
+		text: "typescript",
+		decoration: "decoration-blue-300 text-blue-400",
+		url: "https://www.typescriptlang.org/",
+		icon: getLogo("typescriptlang"),
+	},
+	python: {
+		text: "python",
+		decoration: "decoration-yellow-300 text-yellow-400",
+		url: "https://www.python.org/",
+		icon: getLogo("python"),
+		libs: new Map([
+			["pyautogui", "https://pyautogui.readthedocs.io/en/latest/"],
+			["selenium", "https://www.selenium.dev/"],
+		]),
+	},
+	svelte: {
+		text: "svelte",
+		decoration: "decoration-orange-300 text-orange-400",
+		url: "https://svelte.dev/",
+		icon: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg",
+	},
+	sveltekit: {
+		text: "svelte kit",
+		decoration: "decoration-orange-300 text-orange-400",
+		url: "https://kit.svelte.dev/",
+		icon: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg",
+	},
+	alpine: {
+		text: "alpinejs",
+		decoration: "decoration-blue-600 text-blue-600",
+		url: "https://alpinejs.dev",
+		icon: "https://alpinejs.dev/alpine_long.svg",
+	},
+	dart: {
+		text: "dart",
+		decoration: "decoration-cyan-300 text-cyan-400",
+		url: "https://dart.dev/",
+		icon: getLogo("dartlang"),
+	},
+	flutter: {
+		text: "flutter",
+		decoration: "decoration-cyan-400 text-cyan-500",
+		url: "https://flutter.dev/",
+		icon: getLogo("flutterio"),
+	},
+	mongodb: {
+		text: "MongoDB",
+		decoration: "decoration-lime-400 text-lime-500",
+		url: "https://www.mongodb.com/",
+		icon: getLogo("mongodb"),
+	},
+	firebase: {
+		text: "firebase",
+		decoration: "decoration-yellow-400 text-yellow-500",
+		url: "https://firebase.google.com",
+		icon: getLogo("firebase"),
+	},
+	adam_watan: {
+		text: "adam watan",
+		decoration: "decoration-indigo-400 text-indigo-500",
+		url: "https://twitter.com/adamwathan",
+		icon: "https://avatars.githubusercontent.com/u/4323180",
+	},
+};
+---
+
+<ATag url={langData[lang].url}>
+	<img src={`${langData[lang].icon}`} alt="" class="w-auto h-6" />
+	<Text color={langData[lang].decoration}>
+		{langData[lang].text}
+	</Text>
+</ATag>

@@ -1,16 +1,12 @@
 ---
 // Component Imports
 import Layout from "../layouts/MainLayout.astro";
-import Profile from "@/components/Profile.astro";
-// import Coursel from "@/components/utils/carousel/index.astro";
-
-// const projects = Astro.fetchContent('./project/**/*.md');
-// const featuredProject = projects[0];
+import Card from "@/components/resume/index.astro";
 const content = {
-	title: "Suprito",
-	description: "Portfolio website...",
+	title: "Resume",
+	description: "Resume or CV",
 	image: {
-		src: "/assets/og/default_image.jpg?v=1",
+		src: "/assets/og/resume.jpg",
 		alt:
 			"Myself Sukhpreet Singh I have nothing to say about myself, " +
 			"But I would like to say that I am grateful for all the youtube videos and free resources like docs done very well online which help all of us to bring a change in society, really grateful for all of online educational stuff.",
@@ -19,7 +15,8 @@ const content = {
 ---
 
 <Layout {content} canonicalURL={Astro.request.canonicalURL}>
-	<section>
-		<Profile />
+	<section class="">
+		<Card />
 	</section>
+	<h1></h1>
 </Layout>
