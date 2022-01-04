@@ -53,7 +53,7 @@ const { skip, scrollbar, nextBtnClass, prevBtnClass } = Astro.props;
 				x-ref="slider"
 				role="listbox"
 				aria-labelledby="carousel-content-label"
-				class={`flex w-[calc(100vw-4px)] sm:container overflow-x-scroll snap-x snap-mandatory ${
+				class={`flex w-[calc(100vw-4px)] sm:container h-full overflow-x-scroll snap-x snap-mandatory ${
 					scrollbar === false ? "no-scrollbar" : ""
 				}`}
 				x-inview={`{

@@ -229,7 +229,7 @@ const apps = [
 
 <div class="pt-56 w-full flex flex-col gap-y-6">
 	<h1
-		class="text-4xl text-cyan-600 dark:text-white shadow-light-underline dark:shadow-dark-underline dark:shadow-indigo-600/40 w-max"
+		class=" pl-3 sm:pl-0 text-4xl text-cyan-600 dark:text-white shadow-light-underline dark:shadow-dark-underline dark:shadow-indigo-600/40 w-max"
 	>
 		Projects
 	</h1>
@@ -242,7 +242,7 @@ const apps = [
 		{apps.map((app) => (
 			<CarouselItem clx="py-4 sm:p-2 ">
 				<div
-					class={`sm:aspect-[1.9/1] md:aspect-[2/1] w-full relative flex flex-col p-4 overflow-hidden h-full sm:h-auto sm:rounded-xl`}
+					class={`sm:aspect-[1.9/1] md:aspect-[2/1] lg:aspect-[3/1] w-full relative flex flex-col p-4 overflow-hidden h-full sm:h-auto sm:rounded-xl`}
 				>
 					<img
 						src="https://play.tailwindcss.com/img/beams.jpg"
@@ -253,28 +253,31 @@ const apps = [
 					<div class="absolute inset-0 bg-[url(https://play.tailwindcss.com/img/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
 					<div class="relative flex flex-col content-between h-full justify-between">
 						<div class="flex flex-col">
-							<h1 class="text-4xl text-slate-600 flex items-center flex-wrap mb-6">
+							<h1 class="text-2xl sm:text-3xl md:text-4xl text-slate-600 flex items-center flex-wrap mb-6">
 								{app.heading}
 							</h1>
-							<h2 class="text-2xl mb-4 text-slate-700">
+							<h2 class="text-xl sm:text-2xl mb-4 text-slate-700">
 								Things, I enjoyed and learned while making it
 							</h2>
 							<ul class="ml-10 list-decimal">
 								{app.learnings.map((learning) => (
-									<li class="text-slate-900 text-lg">{learning}</li>
+									<li class="text-slate-900 sm:text-lg">{learning}</li>
 								))}
 							</ul>
 						</div>
-						<a
-							href="#"
-							x-ripple
-							class="focusAbleItem text-xl px-3 py-2 bg-sky-400 w-max text-white rounded-xl"
-						>
-							Link to application
-						</a>
+						<div class="pt-4 sm:pt-0">
+							<a
+								href="#"
+								x-ripple
+								class="focusAbleItem sm:text-xl px-2 sm:px-3 py-1 sm:py-2 bg-sky-400 w-max text-white rounded-xl"
+							>
+								Link to application
+							</a>
+						</div>
 					</div>
 				</div>
 			</CarouselItem>
 		))}
 	</Carousel>
+	<p class="sm:hidden text-center text-white">Swipe -></p>
 </div>
