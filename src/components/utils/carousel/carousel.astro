@@ -1,5 +1,5 @@
 ---
-const { skip, scrollbar } = Astro.props;
+const { skip, scrollbar, nextBtnClass, prevBtnClass } = Astro.props;
 ---
 
 <section class="flex items-center justify-center">
@@ -28,7 +28,7 @@ const { skip, scrollbar } = Astro.props;
 			class="flex items-center gap-x-2"
 		>
 			<h2 id="carousel-label" class="sr-only" hidden>Carousel</h2>
-			<button x-on:click="prev" class="rounded-full">
+			<button x-on:click="prev" class={`rounded-full ${prevBtnClass ?? ""}`}>
 				<span aria-hidden="true">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ const { skip, scrollbar } = Astro.props;
 				x-ref="slider"
 				role="listbox"
 				aria-labelledby="carousel-content-label"
-				class={`flex container overflow-x-scroll snap-x snap-mandatory ${
+				class={`flex w-[calc(100vw-4px)] sm:container overflow-x-scroll snap-x snap-mandatory ${
 					scrollbar === false ? "no-scrollbar" : ""
 				}`}
 				x-inview={`{
@@ -64,7 +64,7 @@ const { skip, scrollbar } = Astro.props;
 			>
 				<slot />
 			</ul>
-			<button x-on:click="next" class="rounded-full">
+			<button x-on:click="next" class={`rounded-full ${nextBtnClass ?? ""}`}>
 				<span aria-hidden="true">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

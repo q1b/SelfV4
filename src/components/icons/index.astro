@@ -2,7 +2,7 @@
 import ATag from "./aTag.astro";
 import Text from "./text.astro";
 
-const { lang } = Astro.props;
+const { lang, clx } = Astro.props;
 
 // const icon = (lang) => {
 // 	if (langData[lang].icon.startsWith("h")) {
@@ -202,7 +202,7 @@ const langData = {
 ---
 
 <ATag url={langData[lang].url}>
-	<img src={`${langData[lang].icon}`} alt="" class="w-auto h-6" />
+	<img src={`${langData[lang].icon}`} alt="" class={clx ?? "w-auto h-6"} />
 	<Text color={langData[lang].decoration}>
 		{langData[lang].text}
 	</Text>

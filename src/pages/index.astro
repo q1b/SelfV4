@@ -1,7 +1,9 @@
 ---
 // Component Imports
 import Layout from "../layouts/MainLayout.astro";
-import Profile from "@/components/Profile.astro";
+import Profile from "@/components/Home/Profile.astro";
+import Divider from "@/components/Home/divider.astro";
+import Showcase from "@/components/Home/showcase.astro";
 // import Coursel from "@/components/utils/carousel/index.astro";
 
 // const projects = Astro.fetchContent('./project/**/*.md');
@@ -19,7 +21,9 @@ const content = {
 ---
 
 <Layout {content} canonicalURL={Astro.request.canonicalURL}>
-	<section>
+	<section class="md:container ">
 		<Profile />
+		<Divider />
+		<Showcase />
 	</section>
 </Layout>

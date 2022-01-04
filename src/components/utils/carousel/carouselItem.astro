@@ -1,5 +1,11 @@
+---
+const { clx } = Astro.props;
+---
+
 <li
-	class="w-full snap-start flex-shrink-0 flex flex-col items-center justify-center p-2"
+	class={`w-full snap-start flex-shrink-0 flex flex-col items-center justify-center ${
+		clx === undefined ? "p-2" : clx
+	}`}
 	role="option"
 >
 	<slot />
