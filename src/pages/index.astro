@@ -4,6 +4,8 @@ import Layout from "../layouts/MainLayout.astro";
 import Profile from "@/components/Home/Profile.astro";
 import Divider from "@/components/Home/divider.astro";
 import Showcase from "@/components/Home/showcase.astro";
+import Notes from "@/components/Home/notes.astro";
+
 // import Coursel from "@/components/utils/carousel/index.astro";
 
 // const projects = Astro.fetchContent('./project/**/*.md');
@@ -21,9 +23,10 @@ const content = {
 ---
 
 <Layout {content} canonicalURL={Astro.request.canonicalURL}>
-	<section class="md:container ">
+	<section class="md:container xl:max-w-5xl">
 		<Profile />
 		<Divider />
 		<Showcase />
+		<Notes />
 	</section>
 </Layout>

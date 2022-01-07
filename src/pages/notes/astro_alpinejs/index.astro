@@ -1,21 +1,28 @@
 ---
 // Component Imports
-import Layout from "../layouts/MainLayout.astro";
-import Card from "@/components/resume/index.astro";
+import Layout from "../../../layouts/MainLayout.astro";
 const content = {
-	title: "Resume",
-	description: "Resume or CV",
+	title: "Suprito",
+	description: "Portfolio website...",
 	image: {
-		src: "/assets/og/resume.jpg",
+		src: "/assets/og/default_image.jpg?v=1",
 		alt:
 			"Myself Sukhpreet Singh I have nothing to say about myself, " +
 			"But I would like to say that I am grateful for all the youtube videos and free resources like docs done very well online which help all of us to bring a change in society, really grateful for all of online educational stuff.",
 	},
 };
+
+/*
+	-> Linear Data Structures
+		Linked List 
+			Singly Linked List
+			Doubly Linked List
+			Circular Linked List
+		Stack	LIFO (last in, first out)
+		Queue	FIFO (first in, first out) 
+*/
 ---
 
 <Layout {content} canonicalURL={Astro.request.canonicalURL}>
-	<section class="">
-		<Card />
-	</section>
+	<h1>Hello World</h1>
 </Layout>
