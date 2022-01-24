@@ -22,10 +22,11 @@
   },
   "dependencies": {
     "@alpinejs/collapse": "^3.7.1",
+    "@alpinejs/focus": "^3.8.1",
     "@alpinejs/intersect": "^3.7.1",
-    "@alpinejs/trap": "^3.7.1",
     "@ryangjchandler/alpine-tooltip": "^0.4.0",
     "alpinejs": "^3.7.1",
+    "astro-icon": "^0.5.3",
     "autoprefixer": "^10.4.0",
     "rive-svelte-action": "^0.0.2",
     "tippy.js": "^6.3.7"

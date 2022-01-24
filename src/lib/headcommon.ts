@@ -8,12 +8,13 @@ import { intersect as intersectV2 } from "./plugins/intersect";
 import intersect from "@alpinejs/intersect";
 import collapse from "@alpinejs/collapse";
 
-import trap from "@alpinejs/trap";
+import focus from "@alpinejs/focus";
+
 import { riveAction, iconAction } from "./rive";
 import { annotate } from "rough-notation";
 import type { RoughAnnotationConfig } from "rough-notation/lib/model";
 
-Alpine.plugin(trap);
+Alpine.plugin(focus);
 Alpine.plugin(intersect);
 Alpine.plugin(collapse);
 Alpine.plugin(Tooltip);

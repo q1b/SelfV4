@@ -1,0 +1,56 @@
+---
+import Showcase from "./showcase.astro"
+import data from "@/static/icons.ts"
+
+const i = (lang) => {
+	const { text, decoration, url, icon } = data[lang];
+	return `i:[${text},${decoration},${url},${icon}]`;
+};
+
+const apps = [
+	{
+		heading: `This website itself is a project made with ${i('astro')} , ${i('alpine')} , ${i('rive')} , ${i('tailwindcss')}`,
+		link: "#",
+		learnings: [
+			"How to structure project in Astro",
+			"How to make Alpinejs work with Astro in the scalable way",
+			"Simply UX/UI, still represent myself, ",
+			"Integrate with other libraries without making things hard to work with for future",
+		],
+	},
+    {
+        heading: `Reactive Sidebar Component using ${i("astro")}  ${i(
+            "javascript"
+        )} &nbsp; Intersection Observer API`,
+        link: "https://docs-with-astro.netlify.app/",
+        learnings: [
+            "How to make components library in Astro",
+            "Learning about Astro Recursive Component",
+            "Learning about Intersection Observer API",
+        ],
+    },
+	{
+		heading: `Transition component,with Web Animation API For Astro, Now RIP`,
+		link: "https://github.com/sacarvy/tr-labs/blob/main/package/tr/src/components/Tr.astro",
+		learnings: [
+			"First hand support for tailwindcss classes, without tailwindcss along with Web Animation API",
+			"How to implement Enter, EnterFrom, EnterTo Leave,LeaveFrom,LeaveTo support",
+			"How to hide element on leave",
+			"Making good api for component",
+		],
+	},
+	{
+		heading: `Represents major tailwindlabs products `,
+		link: "https://tailhelper.netlify.app/",
+		learnings: [
+			"Learning about tailwindcss team",
+			"Knowing about tailwindcss internals",
+			"Making UX simply",
+			"Exploring tailwindcss official plugin",
+		],
+	},
+];
+const title = "Projects"
+---
+
+<Showcase {title} {apps} />  

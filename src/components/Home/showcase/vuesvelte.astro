@@ -1,0 +1,62 @@
+---
+import Showcase from "./showcase.astro"
+import data from "@/static/icons.ts"
+
+const i = (lang) => {
+	const { text, decoration, url, icon } = data[lang];
+	return `i:[${text},${decoration},${url},${icon}]`;
+};
+
+const apps = [
+	{
+		heading: ` ${i('sveltekit')}  ${i('mongodb')}`,
+		link: "#",
+		learnings: [
+			"Designing the Interface",
+			"Applying Tailwindcss classes",
+			"Learning native html forms functionality",
+			"Working with SvelteKit Endpoints",
+		],
+	},
+    {
+        heading: `Made a Svelte Action for Rive`,
+        link: "https://github.com/sacarvy/svelte-action-for-rive#README",
+        learnings: [
+            "Learning about svelte Actions",
+            "Getting to know little about canvas as well devicePixelRatio",
+            "how to load a single buffer for all rive artboard",
+        ],
+    },
+    {
+        heading: `Reactive Cross fade animation with ${i('svelte')}, in real world project.`,
+        link: "https://healthaholist.pages.dev/customer_review",
+        learnings: [
+            "Explore some Svelte Crossfade",
+            "Get to know some tricks",
+            "Learning about simplicity of svelte",
+        ],
+    },
+	{
+		heading: ` Transition component, made with petite ${i('vue')}`,
+		link: "https://github.com/sacarvy/petiteVueTransition",
+		learnings: [
+			"Learning about web animation api for first time",
+			"Getting to know about directive, expression",
+			"Enjoyed working without leaving html, js experience",
+			"Making good api for component",
+		],
+	},
+	{
+		heading: `Color Palette Generator for CSS-Framework like, ${i('tailwindcss')} &nbsp; with ${i('vue')}]`,
+		link: "https://tailhelper.netlify.app/",
+		learnings: [
+			"Getting familiar with hsl(hue,saturation,lightness) and color theory .",
+			"Knowing tailwindcss, color system",
+			"Learning about vue reactivity",
+			"Learning about web clip api",
+		],
+	},  
+];
+const title = "Svelte & Vue Projects"
+---
+<Showcase {title} {apps} />  

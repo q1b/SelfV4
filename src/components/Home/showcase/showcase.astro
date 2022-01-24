@@ -1,0 +1,102 @@
+---
+import { Icon } from "astro-icon";
+import Carousel from "@/components/utils/carousel/carousel.astro";
+import CarouselItem from "@/components/utils/carousel/carouselItem.astro";
+import data from "@/static/icons.ts";
+// console.log(data);
+// import Heading from "./heading.astro"
+const isAll = (t) => {
+	return /\b(?:i*\s*:\s*[\[])([_a-zA\.-Z0-9\s\-:]+),{0,1}([_a-zA\.-Z0-9\s\-:]+){0,1},{0,1}([_a-zA\.-Z0-9\s\-:]+){0,1},{0,1}([_a-zA\.-Z0-9\s\-:]+){0,1}[\]]/g.test(
+		t
+	);
+};
+
+const getAll = (t) => {
+	return /\b(?:i*\s*:\s*[\[])([_a-zA\.-Z0-9\s\-:]+),{0,1}([_a-zA\.-Z0-9\s\-:]+){0,1},{0,1}([_a-zA\.-Z0-9\s\-:]+){0,1},{0,1}([_a-zA\.-Z0-9\s\-:]+){0,1}[\]]/g.exec(
+		t
+	);
+};
+
+// const isText = (t) => {
+//     return /\b(?:t*\s*:\s*[\[])([_a-zA\.-Z0-9\s\-:]+)[\]]/g.test(t);
+// }
+// const getText = (t) => {
+//     return /\b(?:t*\s*:\s*[\[])([_a-zA\.-Z0-9\s\-:]+)[\]]/g.exec(t);
+// }
+
+const i = (lang) => {
+	const { text, decoration, url, icon } = data[lang];
+	return `i:[${text},${decoration},${url},${icon}]`;
+};
+
+const t = (color, text) => {
+	return `<span class="underline inline-flex items-center underline-offset-1 ${color}">${text}</span>`;
+};
+const {apps,title="Projects"} = Astro.props;
+---
+
+<div class="pt-56 w-full flex flex-col gap-y-6">
+	<h1
+		class=" pl-3 sm:pl-0 text-4xl text-cyan-600 dark:text-white shadow-light-underline dark:shadow-dark-underline dark:shadow-indigo-600/40 w-max"
+	>
+		{title}
+	</h1>
+	<Carousel
+		skip={1}
+		scrollbar={false}
+		nextBtnClass="hidden sm:block"
+		prevBtnClass="hidden sm:block"
+	>
+		{apps.map((app) => (
+			<CarouselItem clx="py-4 sm:p-2 ">
+				<div
+					class={`w-full relative flex flex-col p-7 pb-10 overflow-hidden h-full sm:h-auto sm:rounded-xl`}
+				>
+					<img
+						src="https://play.tailwindcss.com/img/beams.jpg"
+						alt=""
+						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-none"
+						width="1308"
+					/>
+					<div class="absolute inset-0 bg-[url(https://play.tailwindcss.com/img/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+					<div class="relative flex flex-col content-between h-full justify-between">
+						<div class="flex flex-col">
+							<h1
+								class="xxs:text-xl xs:text-2xl sm:text-3xl md:text-4xl text-slate-600 flex items-center flex-wrap mb-6"
+							>
+								{app.heading.split(' ').map((text)=> isAll(text) ? (
+									<a href={getAll(text)[3]} class="focusAbleItem inline-flex items-center">
+										<span class="w-10 h-10"> 
+											<Icon class="w-10 h-10" name={getAll(text)[4]} />
+										</span>
+										<span class={`${getAll(text)[2]}`}> 
+											 {getAll(text)[1]}
+										</span>
+									</a>
+								) : ' ' + text )}
+							</h1>
+							<h2 class=" text-sm xxs:text-base xs:text-xl sm:text-2xl md:text-3xl mb-4 text-slate-700">
+								Things, I enjoyed and learned while making it
+							</h2>
+							<ul class="ml-10 list-decimal">
+								{app?.learnings.map((learning) => (
+									<li class="text-slate-900 sm:text-lg md:text-xl">{learning}</li>
+								))}
+							</ul>
+						</div>
+						<div class="mt-4 sm:pt-0">
+							<a
+								href="#"
+								x-ripple
+								class="focusAbleItem sm:text-xl px-2 sm:px-3 py-1 sm:py-2 bg-sky-400 w-max text-white rounded-xl"
+							>
+								Link to application
+							</a>
+						</div>
+					</div>
+				</div>
+			</CarouselItem>
+		))}
+	</Carousel>
+	<p class="sm:hidden text-center text-white">Swipe -></p>
+</div>

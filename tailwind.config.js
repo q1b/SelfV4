@@ -113,6 +113,7 @@ module.exports = {
 				slate: {
 					1000: "#030E1C",
 				},
+				alpine : "#77C1D2",
 			}),
 			fontFamily: {
 				cascadia: "Cascadia Code PL",
