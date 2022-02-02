@@ -1,10 +1,19 @@
 {
 	"folders": [
 		{
-			"path": "."
+			"name": "astro-package-template",
+			"path": "../my-turborepo"
 		},
 		{
-			"path": "D:\\Dev\\Projects\\astro-scroll"
+			"name":"googles playground component",
+			"path": "d:\\dev\\projects\\astro-playground"
+		},
+        {
+            "name": "portfolio",
+            "path": "."
+        },
+		{
+			"path": "d:\\dev\\projects\\astro-scroll"
 		},
 		{
 			// "path":"../healthaholist/healthaholist",
