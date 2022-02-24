@@ -1,0 +1,355 @@
+---
+import TableOfContent from "./TableOfContent.astro"
+let { 
+    headers,
+    containerClass,
+    groupContainerClass,
+    activeGroupClass,
+    inActiveGroupClass,
+    linkClass,
+    groupClass,
+    staticClass,
+    activeClass,
+    inActiveClass,
+    activeLinkClass,
+    inActiveLinkClass,
+} = Astro.props;
+
+if (typeof staticClass === 'object') {
+     staticClass = {
+        h1: "text-sm",
+        h2: "text-sm",
+        h3: "text-sm",
+        h4: "text-sm",
+        ...staticClass
+    };
+}else{
+    staticClass = {
+        h1: staticClass,
+        h2: staticClass,
+        h3: staticClass,
+        h4: staticClass,
+    }
+}
+if (typeof groupClass === 'object') {
+      groupClass = {
+        h1: "pl-2 py-[3px] gap-y-[3px]",
+        h2: "pl-2 py-[3px] gap-y-[3px]",
+        h3: "pl-2 py-[3px] gap-y-[3px]",
+        h4: "pl-2 py-[3px] gap-y-[3px]",
+        ...groupClass
+    };
+}else{
+     groupClass= {
+        h1: groupClass,
+        h2: groupClass,
+        h3: groupClass,
+        h4: groupClass,
+    }
+}
+
+if (typeof linkClass === 'object') {
+     linkClass = {
+        h1: "",
+        h2: "",
+        h3: "",
+        h4: "",
+        ...linkClass
+    };
+}else{
+    linkClass = {
+        h1: linkClass,
+        h2: linkClass,
+        h3: linkClass,
+        h4: linkClass,
+    }
+}
+
+// Class to be applied H2,H3,H4 those are in viewport
+if (typeof activeClass === 'object') {
+      for (let index = 0; index < Object.keys(activeClass).length; index++) {
+        const key = Object.keys(activeClass)[index];
+        activeClass[key] = activeClass[key].split(' ');
+      }
+      activeClass = {
+        h1: ["text-white"],
+        h2: ["text-white"],
+        h3: ["text-white"],
+        h4: ["text-white"],
+        ...activeClass
+      };
+}else{
+    activeClass = {
+        h1: activeClass.split(' '),
+        h2: activeClass.split(' '),
+        h3: activeClass.split(' '),
+        h4: activeClass.split(' '),
+    }
+}
+// Classes to be applied when H2,H3,H4 are not in viewport
+// Class to be applied H2,H3,H4 those are in viewport
+if (typeof inActiveClass === 'object') {
+      for (let index = 0; index < Object.keys(inActiveClass).length; index++) {
+        const key = Object.keys(inActiveClass)[index];
+        inActiveClass[key] = inActiveClass[key].split(' ');
+      }
+      inActiveClass = {
+        h1: ["text-white"],
+        h2: ["text-white"],
+        h3: ["text-white"],
+        h4: ["text-white"],
+        ...inActiveClass
+      };
+}else{
+    inActiveClass = {
+        h1: inActiveClass.split(' '),
+        h2: inActiveClass.split(' '),
+        h3: inActiveClass.split(' '),
+        h4: inActiveClass.split(' '),
+    }
+}
+    function menuObj(text:String, link:String, depth:number, header?:any ) {
+        if(header)
+            return {text,link,depth,header}
+        return {text,link,depth}
+    }
+
+    function getMenuWithWhile(arr) {
+      const arr_itr = arr[Symbol.iterator]();
+      let result = [];
+      let prev;
+      while (true) {
+        let b = arr_itr.next();
+        if (prev === undefined) prev = b;
+        while (b.value?.depth >= prev.value?.depth) {
+          let prev1 = b;
+          b = arr_itr.next();
+          let r2 = [];
+          while (b.value?.depth > prev1.value?.depth) {
+            let prev2 = b;
+            b = arr_itr.next();
+            let r3 = [];
+            while (b.value?.depth > prev2.value?.depth) {
+              let prev3 = b;
+              b = arr_itr.next();
+              let r4 = [];
+              while (b.value?.depth > prev3.value?.depth) {
+                let prev4 = b;
+                r4 = [...r4, menuObj(prev4.value?.text,prev4.value?.slug,prev4?.value.depth)];
+                b = arr_itr.next();
+              }
+              r3 = [...r3, menuObj(prev3.value?.text,prev3.value?.slug,prev3?.value.depth,r4)];
+            }
+            r2 = [...r2, menuObj(prev2.value?.text,prev2.value?.slug,prev2?.value.depth,r3)];
+          }
+          result = [...result, menuObj(prev1.value?.text,prev1.value?.slug,prev1?.value.depth,r2)];
+        }
+        if (b.done)
+          break;
+        prev = b;
+      }
+      return result;
+    }
+---
+<TableOfContent headers={getMenuWithWhile(headers)} 
+    {groupContainerClass} 
+    {containerClass} 
+    {staticClass} 
+    {linkClass} 
+    {groupClass} 
+    {activeGroupClass} 
+    {inActiveGroupClass} 
+    {inActiveClass}
+/>
+
+<script hoist define:vars={{headers,activeClass,activeLinkClass,activeGroupClass,inActiveClass,inActiveLinkClass,inActiveGroupClass}}>
+let elementsDetails = {};
+
+let scrolling = "down";
+
+let prev_h1;
+let prev_h2;
+let prev_h3;
+let prev_h4;
+
+console.log(headers)
+// Utility functions
+function removeClass(elementId, Classes) {
+  document.getElementById(elementId).classList.remove(...Classes);
+}
+
+function addClass(elementId, Classes) {
+  document.getElementById(elementId).classList.add(...Classes);
+}
+
+function applyActiveClass(elementName, elementId) {
+  removeClass(elementId, inActiveClass[elementName]);
+  addClass(elementId, activeClass[elementName]);
+  if(activeLinkClass !== undefined){
+    document.getElementById(elementId).parentElement.classList.remove(inActiveLinkClass);
+    document.getElementById(elementId).parentElement.classList.add(activeLinkClass);
+  }
+  if(activeGroupClass !== undefined){
+    document.getElementById(elementId).parentElement.parentElement.classList.remove(inActiveGroupClass);
+    document.getElementById(elementId).parentElement.parentElement.classList.add(activeGroupClass);
+  }
+}
+
+function applyInactiveClass(elementName, elementId) {
+  removeClass(elementId, activeClass[elementName]);
+  addClass(elementId, inActiveClass[elementName]);
+  if(activeLinkClass !== undefined){
+    document.getElementById(elementId).parentElement.classList.remove(activeLinkClass);
+    document.getElementById(elementId).parentElement.classList.add(inActiveLinkClass);
+  }
+  if(activeGroupClass!== undefined){
+    document.getElementById(elementId).parentElement.parentElement.classList.remove(activeGroupClass);
+    document.getElementById(elementId).parentElement.parentElement.classList.add(inActiveGroupClass);
+  }
+}
+
+// isUndefined
+function isDefined(value) {
+  return value !== undefined;
+}
+
+function unsetAppliedClass(...previousElements) {
+  previousElements.forEach((previousElement) => {
+    if(isDefined(previousElement)) {
+      tagName = document.getElementById(previousElement.id.replace('-link','')).tagName.toLowerCase();
+      applyInactiveClass(tagName,previousElement.id)
+    }
+  });
+}
+
+function getParentPTag(elementId) {
+  return getRelativeLinkElement(elementId).parentElement.parentElement // `p` tag // `a` tag //  `li` tag
+    .parentElement.previousElementSibling.firstElementChild; // `ul` tag // Parent `a` tag // Parent's `p` tag
+}
+
+function getRelativeLinkElement(elementId) {
+  return document.getElementById(elementId + "-link");
+}
+
+function isChildless(elementId) {
+  return (
+    getRelativeLinkElement(elementId).parentElement.nextElementSibling === null
+  );
+}
+
+window.onload = () => {
+  /* Here, all static values are going to evalute then add to elementDetails */
+  for (let index = 0; index < headers.length; index++) {
+    const element = headers[index];
+    const id = element["slug"];
+    let is_childless = isChildless(id);
+    let current_element = getRelativeLinkElement(id);
+    let y_pos = 20;
+    let parent_element;
+    // grandparent_element is like parent's parent element
+    let grandparent_element;
+    if (element["depth"] === 2) parent_element = null;
+    else { 
+        parent_element = getParentPTag(id)
+    };
+    if (element['depth'] === 4) { 
+        grandparent_element = getParentPTag(parent_element.id.replace('-link',''));
+    }else{
+        grandparent_element = null;
+    }
+    
+    elementsDetails[id] = {
+      is_childless,
+      current_element,
+      y_pos,
+      parent_element,
+      grandparent_element,
+    };
+    document.getElementById(id).classList.add("scroll-mt-16");
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      for (let index = 0; index < entries.length; index++) {
+        let entry = entries[index];
+        if (entry.isIntersecting) {
+          let { y_pos, is_childless, current_element, parent_element, grandparent_element } =
+            elementsDetails[entry.target.id];
+
+          y_pos > entry.boundingClientRect.y
+            ? (scrolling = "up")
+            : (scrolling = "down");
+          elementsDetails[entry.target.id]["y_pos"] =
+            entry.boundingClientRect.y;
+
+          switch (entry.target.tagName) {
+            case "H2":
+              // if (!is_childless) return;
+              // If it's childless then return nothing
+              if (prev_h2 !== current_element) {
+                unsetAppliedClass(prev_h2, prev_h3, prev_h4);
+                prev_h2 = current_element;
+                applyActiveClass("h2", prev_h2.id);
+              }
+              break;
+            case "H3":
+              if (prev_h2 !== parent_element) {
+                unsetAppliedClass(prev_h2, prev_h3, prev_h4);
+                prev_h2 = parent_element;
+                applyActiveClass("h2", prev_h2.id);
+              }
+              if (prev_h3 !== current_element) {
+                unsetAppliedClass(prev_h3);
+                prev_h3 = current_element;
+                applyActiveClass("h3", prev_h3.id);
+              }
+              break;
+            case "H4":
+                if(prev_h2 !== grandparent_element){
+                    unsetAppliedClass(prev_h2);
+                    prev_h2 = grandparent_element;
+                    applyActiveClass("h2", prev_h2.id);
+                }
+                if (prev_h3 !== parent_element) {
+                  unsetAppliedClass(prev_h3, prev_h4);
+                  prev_h3 = parent_element;
+                  applyActiveClass("h3", prev_h3.id);
+                }
+                if (prev_h4 !== current_element) {
+                  unsetAppliedClass(prev_h4);
+                  prev_h4 = current_element;
+                  applyActiveClass("h4", prev_h4.id);
+                }
+                break;
+            default:
+              break;
+          }
+        } 
+        // else {
+        //   switch (entry.target.tagName) {
+        //     case "H2":
+        //       if (elementsDetails[entry.target.id]["is_childless"]) {
+        //       }
+        //       break;
+        //     case "H3":
+        //       break;
+        //     case "H4":
+        //       break;
+        //     default:
+        //       break;
+        //   }
+        // }
+      }
+    },
+    {
+      root: document.querySelector("root"),
+      rootMargin: "0px 0px",
+      threshold: 0,
+    }
+  );
+
+  for (let index = 0; index < headers.length; index++) {
+    observer.observe(document.getElementById(headers[index]["slug"]));
+  }
+};
+</script>

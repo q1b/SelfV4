@@ -5,17 +5,19 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build --experimental-static-build",
+    "build": "astro build",
     "preview": "astro preview",
     "format": "prettier -w ."
   },
   "devDependencies": {
     "@astrojs/renderer-svelte": "^0.2.3",
+    "@tailwindcss/line-clamp": "^0.3.1",
     "@tailwindcss/typography": "^0.5.0",
-    "astro": "^0.22.20",
+    "astro": "^0.23.0",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "prettier-plugin-astro": "^0.0.11",
+    "prettier-plugin-tailwindcss": "^0.1.5",
     "rough-notation": "^0.5.1",
     "tailwindcss": "^3.0.7",
     "vite-plugin-pwa": "^0.11.12"
@@ -28,6 +30,7 @@
     "alpinejs": "^3.7.1",
     "astro-icon": "^0.5.3",
     "autoprefixer": "^10.4.0",
+    "reactive-astro-sidebar": "^0.1.4",
     "rive-svelte-action": "^0.0.2",
     "tippy.js": "^6.3.7"
   }

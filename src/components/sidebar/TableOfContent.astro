@@ -1,0 +1,32 @@
+---
+import TableItem from "./TableItem.astro"
+const { 
+    headers,
+    transfromed=false,
+    containerClass='',
+    groupContainerClass='',
+    groupClass="pl-2 py-[3px] gap-y-[3px]",
+    linkClass="linkClass",
+    staticClass="text-sm", 
+    inActiveClass="text-slate-100" 
+}= Astro.props;
+
+let docsItems = headers;
+const Self = Astro.self;
+---
+
+<ul class={ transfromed ? `flex flex-col relative ${groupContainerClass}` : `flex flex-col overflow-y-auto sc font-sans ${containerClass} ${groupContainerClass}` } >
+{
+    docsItems.map(
+      docItem => (
+        <TableItem {docItem} {groupClass} {linkClass} {staticClass} {inActiveClass}  >
+          {
+              docItem.header && (
+                <Self headers={docItem.header} transfromed={true} {groupClass} {linkClass} {staticClass} {inActiveClass} {containerClass} {groupContainerClass} />
+              )
+          }
+        </TableItem>
+      )
+    )
+  }  
+</ul>

@@ -1,0 +1,81 @@
+---
+import Layout from "./MainLayout.astro";
+import ReactiveSidebar from "../components/sidebar/ReactiveSidebar.astro";
+// import RightSidebar from "../components/rightSideBar.astro"
+const { content } = Astro.props;
+const data = Astro.fetchContent("../pages/*.md");
+const canonicalURL = Astro.request.canonicalURL;
+const headers = content.astro.headers;
+const staticClass = "w-32 text-sm";
+const groupClass = "pl-0.5 py-[3px] gap-y-[3px] border border-white";
+const activeClass = "text-white";
+const linkClass = "underline";
+const inActiveClass = "text-slate-500";
+const activeGroupClass = "border-blue-700";
+const inActiveGroupClass = "border-white";
+---
+
+<Layout
+	content={{
+		title: content.title,
+		description: content.description,
+	}}
+	{canonicalURL}
+>
+	<div class="w-full flex pt-10">
+		<section
+			class="h-full min-h-screen my-10 sticky inset-0 w-56 flex-shrink-0 py-24 pr-6 flex flex-col"
+		>
+			<aside
+				class="bg-slate-1000/80 rounded-r-lg py-6 px-4 flex flex-col gap-y-3 items-center"
+			>
+				<h1 class="text-white text-xl">Reactive Sidebar Content</h1>
+				<ul class=" w-full">
+					{data.map((d) => (
+						<li class=" text-white">
+							<a href={d.url}>{d.title}</a>
+						</li>
+					))}
+				</ul>
+			</aside>
+		</section>
+		<main
+			class="min-h-screen w-full p-2 rounded-xl prose prose-invert max-w-4xl"
+		>
+			<slot />
+		</main>
+		<section
+			class="h-screen sticky inset-0 w-[216px] flex-shrink-0 p-4 flex flex-col items-center justify-center"
+		>
+			<aside
+				id="container-onPage-content"
+				class="bg-[#00112B] w-full min-h-[16rem] max-h-[20rem] rounded-xl p-4 flex flex-col gap-y-4"
+			>
+				<h1 class="text-white text-lg leading-3">On this page</h1>
+				<ReactiveSidebar
+					{headers}
+					{groupClass}
+					{linkClass}
+					{activeGroupClass}
+					{inActiveGroupClass}
+					{activeClass}
+					{staticClass}
+					{inActiveClass}
+				/>
+			</aside>
+			<div id="social-media-content" class="w-full h-32 rounded-xl pt-8 px-2">
+				<ul class="flex flex-col gap-3">
+					<li class="bg-blue-500 w-full px-2 rounded-lg">
+						<a href="" class="text-white"> Share on twitter </a>
+					</li>
+					<li class="bg-slate-500 my-auto w-full px-2 rounded-lg">
+						<a href="" class="text-white"> Share on twitter </a>
+					</li>
+					<li class="bg-slate-300 my-auto w-full px-2 rounded-lg">
+						<a href="" class="text-slate-700"> Share on twitter </a>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+</Layout>

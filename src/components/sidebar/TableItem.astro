@@ -1,0 +1,21 @@
+---
+const { 
+	docItem,
+	groupClass="pl-2 py-[3px] gap-y-[3px]",
+	linkClass="link-class",
+	staticClass="text-sm", 
+	inActiveClass="text-slate-100"
+}= Astro.props;
+---
+
+<li class={`w-full flex flex-col items-start ${groupClass[`h${docItem.depth}`] ?? groupClass}`}>
+    	<a
+    		href={docItem.link}
+    		class={`${linkClass[`h${docItem.depth}`] ?? linkClass} w-max`}
+    	>
+        	<p id={docItem.link+'-link'} class={`${staticClass[`h${docItem.depth}`] ?? staticClass} ${inActiveClass[`h${docItem.depth}`] ?? inActiveClass} line-clamp-1 transition-colors ease-in duration-200`} >
+        	  {docItem.text ?? "Us of ni okay"}
+        	</p>
+    	</a>      
+		<slot/>
+</li>

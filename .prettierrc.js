@@ -5,7 +5,9 @@ module.export = {
   tabWidth: 2,
   trailingComma: "es5",
   useTabs: true,
-  plugins: [require("prettier-plugin-astro")],
+  plugins: [
+    require("prettier-plugin-astro"),
+  ],
   overrides: [
     {
       files: [".*", "*.json", "*.md", "*.toml", "*.yml"],
